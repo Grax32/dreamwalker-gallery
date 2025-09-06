@@ -1,1 +1,427 @@
- placeholder
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dreamwalker Art Gallery — Coming Soon</title>
+  <meta name="description" content="Dreamwalker Art Gallery — immersive dream-inspired exhibitions arriving soon." />
+
+  <!-- Minimal, self-contained styles -->
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1228;
+      --accent1:#a17cff;
+      --accent2:#5ee7df;
+      --muted:#9aa3b2;
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.03);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{height:100%;margin:0}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(161,124,255,0.08), transparent 6%),
+                  radial-gradient(900px 450px at 90% 80%, rgba(94,231,223,0.06), transparent 8%),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#eef2ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+      overflow:hidden;
+    }
+
+    /* soft nebula / dream particles */
+    .nebula{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      mix-blend-mode:screen;
+      opacity:0.7;
+    }
+    .nebula svg{width:100%;height:100%;display:block}
+
+    .container{
+      width:100%;
+      max-width:980px;
+      backdrop-filter: blur(6px) saturate(1.1);
+      padding:2rem;
+      border-radius:16px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      position:relative;
+      z-index:2;
+    }
+
+    header{
+      display:flex;
+      gap:1rem;
+      align-items:center;
+      margin-bottom:1.25rem;
+    }
+
+    .logo{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      border-radius:12px;
+      color:#081024;
+      font-weight:700;
+      font-size:1.05rem;
+      box-shadow: 0 4px 18px rgba(81,63,156,0.22);
+    }
+
+    h1{
+      margin:0;
+      font-size:1.6rem;
+      line-height:1.05;
+      letter-spacing: -0.01em;
+    }
+    p.lead{margin:0.4rem 0 0;color:var(--muted);font-size:0.95rem}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:1.25rem;
+      margin-top:1.5rem;
+    }
+
+    /* left column */
+    .left{
+      padding:1.25rem;
+      border-radius:12px;
+      background:var(--card);
+      min-height:260px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:1rem;
+    }
+
+    .countdown{
+      display:flex;
+      gap:0.75rem;
+      flex-wrap:wrap;
+    }
+    .countdown .unit{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:0.9rem 0.95rem;
+      border-radius:10px;
+      min-width:74px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .countdown .value{font-weight:700;font-size:1.15rem}
+    .countdown .label{font-size:0.72rem;color:var(--muted);margin-top:0.25rem}
+
+    .tagline{
+      color:var(--muted);
+      font-size:0.95rem;
+      line-height:1.35;
+    }
+
+    /* right column: signup */
+    .card-signup{
+      padding:1.25rem;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:0.75rem;
+    }
+    label{font-size:0.82rem;color:var(--muted)}
+    input[type="email"]{
+      padding:0.7rem 0.8rem;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:rgba(255,255,255,0.02);
+      color:inherit;
+      font-size:0.95rem;
+      outline:none;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:0.6rem;
+      padding:0.7rem 0.9rem;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:#051026;
+      box-shadow: 0 6px 18px rgba(81,63,156,0.12);
+    }
+    .sub{
+      font-size:0.82rem;color:var(--muted);
+    }
+
+    .social{
+      display:flex;
+      gap:0.5rem;
+      margin-top:0.6rem;
+    }
+    .social a{
+      display:inline-grid;place-items:center;
+      width:36px;height:36px;border-radius:9px;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.02);
+      text-decoration:none;color:inherit;
+    }
+
+    footer{
+      margin-top:1.25rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:var(--muted);
+      font-size:0.85rem;
+    }
+
+    /* small screens */
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr; }
+      .right{order:2}
+    }
+
+    /* small animated "eye" float */
+    .dream-eye{
+      position:absolute;
+      right:-60px;
+      top:-40px;
+      width:300px;height:300px;
+      opacity:0.08;
+      transform:rotate(-12deg);
+      filter: blur(1px);
+    }
+
+    /* accessibility focus styles */
+    a:focus, button:focus, input:focus { outline: 3px solid rgba(94,231,223,0.18); outline-offset:3px; }
+
+    /* subtle float */
+    .floaty{
+      animation: floaty 6s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%{ transform: translateY(0) }
+      50%{ transform: translateY(-8px) }
+      100%{ transform: translateY(0) }
+    }
+  </style>
+</head>
+<body>
+  <!-- decorative nebula -->
+  <div class="nebula" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="g1" cx="20%" cy="10%">
+          <stop offset="0" stop-color="#a17cff" stop-opacity="0.35"/>
+          <stop offset="1" stop-color="#a17cff" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="g2" cx="90%" cy="80%">
+          <stop offset="0" stop-color="#5ee7df" stop-opacity="0.28"/>
+          <stop offset="1" stop-color="#5ee7df" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1600" height="900" fill="url(#g1)"/>
+      <rect x="400" y="200" width="1200" height="700" fill="url(#g2)"/>
+      <!-- tiny drifting orbs -->
+      <g fill="#fff" opacity="0.06">
+        <circle cx="120" cy="720" r="6"/>
+        <circle cx="220" cy="140" r="8"/>
+        <circle cx="1020" cy="80" r="5"/>
+        <circle cx="1400" cy="520" r="7"/>
+        <circle cx="800" cy="440" r="9"/>
+      </g>
+    </svg>
+  </div>
+
+  <main class="container" role="main">
+    <header>
+      <div class="logo" aria-hidden="true">DW</div>
+      <div>
+        <h1>Dreamwalker Art Gallery</h1>
+        <p class="lead">Immersive exhibitions inspired by dreams, symbolism, and the unseen.</p>
+      </div>
+    </header>
+
+    <section class="grid" aria-labelledby="coming">
+      <div class="left" id="coming">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div>
+            <strong style="display:block;font-size:0.95rem">Opening</strong>
+            <div style="font-weight:700;font-size:1.25rem;margin-top:0.25rem">A journey through dreams — coming soon</div>
+          </div>
+          <div style="color:var(--muted);font-size:0.82rem">Location: <span style="color:#dfe9ff">Dreamwalker Studio — downtown</span></div>
+        </div>
+
+        <div class="countdown" aria-live="polite" aria-atomic="true" style="margin-top:1rem" id="countdown">
+          <div class="unit">
+            <div class="value" id="days">--</div>
+            <div class="label">days</div>
+          </div>
+          <div class="unit">
+            <div class="value" id="hours">--</div>
+            <div class="label">hours</div>
+          </div>
+          <div class="unit">
+            <div class="value" id="minutes">--</div>
+            <div class="label">minutes</div>
+          </div>
+          <div class="unit">
+            <div class="value" id="seconds">--</div>
+            <div class="label">seconds</div>
+          </div>
+        </div>
+
+        <p class="tagline" style="margin-top:1rem">
+          Subscribe to receive the opening date, exclusive previews, and artist announcements.
+        </p>
+      </div>
+
+      <aside class="card-signup right" aria-labelledby="signup">
+        <h2 id="signup" style="margin:0 0 0.4rem 0">Stay informed</h2>
+        <form id="signupForm" autocomplete="on" novalidate>
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" inputmode="email" placeholder="you@inbox.example" required aria-required="true" />
+          <button class="btn" type="submit" aria-label="Join waitlist">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 2v20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9l7-7 7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Join the waitlist
+          </button>
+          <div class="sub">We store signups locally for demo. Replace the submit handler with your API endpoint to collect real emails.</div>
+        </form>
+
+        <div class="social" aria-hidden="false" style="margin-top:0.6rem">
+          <a href="#" title="Instagram" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.2"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+          </a>
+          <a href="#" title="Twitter" aria-label="X / Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23 4.01c-.7.31-1.44.52-2.22.62a3.9 3.9 0 0 0-6.66 3.56 11.06 11.06 0 0 1-8.03-4.07 3.9 3.9 0 0 0 1.2 5.21 3.78 3.78 0 0 1-1.77-.49v.05c0 1.86 1.33 3.41 3.1 3.76a3.77 3.77 0 0 1-1.76.07c.5 1.57 1.95 2.71 3.66 2.74A7.82 7.82 0 0 1 1.7 19.6a11.04 11.04 0 0 0 5.98 1.75c7.17 0 11.09-5.94 11.09-11.09v-.5A7.9 7.9 0 0 0 23 4.01z" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" title="Email" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 6.5h18v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11z" stroke="currentColor" stroke-width="1.1"/><path d="M21 6.5l-9 7-9-7" stroke="currentColor" stroke-width="1.1"/></svg>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Dreamwalker Art Gallery</div>
+      <div style="display:flex;gap:0.8rem;align-items:center">
+        <div style="color:var(--muted);font-size:0.9rem">Preview •</div>
+        <div style="color:var(--muted);font-size:0.85rem">Contact: <a href="mailto:hello@dreamwalker.example" style="color:inherit;text-decoration:underline">hello@dreamwalker.example</a></div>
+      </div>
+    </footer>
+
+    <!-- faint decorative eye -->
+    <svg class="dream-eye floaty" viewBox="0 0 200 200" aria-hidden="true">
+      <defs>
+        <linearGradient id="eyeg" x1="0" x2="1">
+          <stop offset="0" stop-color="#a17cff" stop-opacity="0.7"/>
+          <stop offset="1" stop-color="#5ee7df" stop-opacity="0.7"/>
+        </linearGradient>
+      </defs>
+      <g transform="translate(0,0)">
+        <ellipse cx="100" cy="100" rx="80" ry="42" fill="none" stroke="url(#eyeg)" stroke-width="6" opacity="0.12"/>
+        <circle cx="100" cy="100" r="26" fill="url(#eyeg)" opacity="0.06"/>
+      </g>
+    </svg>
+  </main>
+
+  <!-- Behavior: countdown and basic signup storage -->
+  <script>
+    (function(){
+      // default launch date: change as required (ISO format)
+      const LAUNCH_ISO = '2025-10-06T00:00:00';
+      const launchDate = new Date(LAUNCH_ISO);
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minsEl = document.getElementById('minutes');
+      const secsEl = document.getElementById('seconds');
+      const yearEl = document.getElementById('year');
+      const form = document.getElementById('signupForm');
+      const emailInput = document.getElementById('email');
+
+      // display current year
+      yearEl.textContent = new Date().getFullYear();
+
+      function updateCountdown() {
+        const now = new Date();
+        let diff = Math.max(0, launchDate - now);
+        const d = Math.floor(diff / (1000*60*60*24));
+        diff -= d * (1000*60*60*24);
+        const h = Math.floor(diff / (1000*60*60));
+        diff -= h * (1000*60*60);
+        const m = Math.floor(diff / (1000*60));
+        diff -= m * (1000*60);
+        const s = Math.floor(diff / 1000);
+
+        daysEl.textContent = String(d).padStart(2,'0');
+        hoursEl.textContent = String(h).padStart(2,'0');
+        minsEl.textContent = String(m).padStart(2,'0');
+        secsEl.textContent = String(s).padStart(2,'0');
+
+        // if countdown reached, swap to a simple message
+        if (launchDate - now <= 0) {
+          const left = document.querySelector('.left');
+          left.innerHTML = '<div style="font-size:1.05rem;font-weight:700">Dreamwalker is now open — welcome.</div><p style="color:var(--muted);margin-top:0.5rem">Check back for visiting hours and ticketing.</p>';
+        }
+      }
+
+      // initial update and interval
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // simple client-side signup: persist to localStorage and show confirmation
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        const email = (emailInput.value || '').trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          emailInput.focus();
+          emailInput.setAttribute('aria-invalid','true');
+          return;
+        }
+        emailInput.removeAttribute('aria-invalid');
+
+        const key = 'dreamwalker_signups_v1';
+        const stored = JSON.parse(localStorage.getItem(key) || '[]');
+        if (!stored.includes(email)) stored.push(email);
+        localStorage.setItem(key, JSON.stringify(stored));
+
+        // simple visual confirmation
+        const btn = form.querySelector('.btn');
+        btn.textContent = 'Added ✓';
+        btn.setAttribute('disabled','true');
+        emailInput.value = '';
+        setTimeout(()=> {
+          btn.textContent = 'Join the waitlist';
+          btn.removeAttribute('disabled');
+        }, 2200);
+      });
+
+      // accessibility: allow enter to submit email from input
+      emailInput.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          form.dispatchEvent(new Event('submit', {cancelable: true}));
+        }
+      });
+
+      // keyboard focus trap hint: press tab to explore
+      // NOTE: replace localStorage handler with a secure server API in production.
+    })();
+  </script>
+</body>
+</html>
