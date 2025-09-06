@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dream-Walker Art Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0b0b14;
+      color: #e0d7f5;
+    }
+
+    header {
+      background: linear-gradient(to right, #1a0033, #32004d);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #d1b3ff;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #e0d7f5;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d1b3ff;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+
+    .hero .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #d1b3ff;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+      color: #f0eaff;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: #f0eaff;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #140021;
+      color: #b8a3d1;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The DreamWalker Gallery</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Gallery</a>
+      <a href="#">Exhibits</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="art-science-love-garden.png" alt="DreamWalker Gallery -- Art, Science, Love">
+    <div class="overlay">
+      <h2>The DreamWalker Gallery</h2>
+      <p>Where imagination, digital art, and photography blend into surreal worlds of creativity.</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="art/great-blue-heron-3048x4544.jpg" alt="Great Blue Heron">
+      <div class="caption">Majesty on the Water</div>
+    </div>
+    <div class="gallery-item">
+      <img src="art/rhino.jpg" alt="Rhinoceros">
+      <div class="caption">Ancient Strength: The Dreaming Rhino</div>
+    </div>
+    <div class="gallery-item">
+      <img src="art/foggy-day.jpg" alt="Foggy Day">
+      <div class="caption">Whispers in the Mist</div>
+    </div>
+    <div class="gallery-item">
+      <img src="art/butterflies.jpg" alt="Butterflies">
+      <div class="caption">Wings of Wonder</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 DreamWalker Art Gallery. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
