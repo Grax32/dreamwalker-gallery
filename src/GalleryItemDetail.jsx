@@ -1,10 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import galleryData from './galleryData';
 
 const GalleryItemDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const item = galleryData.find(item => item.slug === slug);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!item) {
     return <div>Item not found</div>;
@@ -17,8 +22,8 @@ const GalleryItemDetail = () => {
   const nextItem = hasNext ? galleryData[currentIndex + 1] : null;
 
   return (
-    <div style={{backgroundColor: '#0b0b14', color: '#e0d7f5', minHeight: '100vh', fontFamily: "'Segoe UI', sans-serif", padding: '2rem'}}>
-      <div style={{textAlign: 'center'}}>
+    <div style={{backgroundColor: '#0b0b14', color: '#e0d7f5', height: '100vh', width: '100vw', fontFamily: "'Segoe UI', sans-serif", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box'}}>
+      <div style={{textAlign: 'center', width: '100%'}}>
         <img
           src={item.src}
           alt={item.caption}
