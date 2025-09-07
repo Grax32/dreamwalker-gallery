@@ -3,106 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dreamwalker Gallery</title>
+    <title>The DreamWalker Gallery</title>
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body class="gallery-container">
-    <header class="gallery-header">
-  <h1>Dreamwalker Gallery</h1>
-  <p>Curated collection of imagery</p>
+    <header class="navbar">
+  <div class="nav-brand">
+    <a href="/">The DreamWalker Gallery</a>
+  </div>
+  <nav class="nav-links">
+    <a href="/" class="nav-link">Home</a>
+  </nav>
 </header>
 
     <main class="gallery-main">
       
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>The DreamWalker Gallery</h1>
+    <p>Where imagination, digital art, and photography blend into surreal worlds of creativity.</p>
+  </div>
+</section>
+
 <section class="gallery-grid">
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/majesty-on-the-water/">
-    
-      <img src="/assets/art/great-blue-heron-3048x4544.jpg" alt="Majesty on the Water" loading="lazy" decoding="async">
-    
-    <div class="caption">Majesty on the Water</div>
-  </a>
-</article>
-
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/ancient-strength-the-dreaming-rhino/">
-    
-      <img src="/assets/art/rhino.jpg" alt="Ancient Strength: The Dreaming Rhino" loading="lazy" decoding="async">
-    
-    <div class="caption">Ancient Strength: The Dreaming Rhino</div>
-  </a>
-</article>
-
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/whispers-in-the-mist/">
-    
-      <img src="/assets/art/foggy-day.jpg" alt="Whispers in the Mist" loading="lazy" decoding="async">
-    
-    <div class="caption">Whispers in the Mist</div>
-  </a>
-</article>
-
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/wings-of-wonder/">
-    
-      <img src="/assets/art/butterflies.jpg" alt="Wings of Wonder" loading="lazy" decoding="async">
-    
-    <div class="caption">Wings of Wonder</div>
-  </a>
-</article>
-
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/soaring-spirit/">
-    
-      <img src="/assets/art/hawk.jpg" alt="Soaring Spirit" loading="lazy" decoding="async">
-    
-    <div class="caption">Soaring Spirit</div>
-  </a>
-</article>
-
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/festive-bloom/">
-    
-      <img src="/assets/art/poinsettia.jpg" alt="Festive Bloom" loading="lazy" decoding="async">
-    
-    <div class="caption">Festive Bloom</div>
-  </a>
-</article>
-
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/timeless-beauty/">
-    
-      <img src="/assets/art/roses.jpg" alt="Timeless Beauty" loading="lazy" decoding="async">
-    
-    <div class="caption">Timeless Beauty</div>
-  </a>
-</article>
-
-  
-    
-    <article class="gallery-item">
-  <a href="/gallery/vibrant-melody/">
-    
-      <img src="/assets/art/trumpet-flower.jpg" alt="Vibrant Melody" loading="lazy" decoding="async">
-    
-    <div class="caption">Vibrant Melody</div>
-  </a>
-</article>
-
   
     
     <article class="gallery-item">
@@ -196,8 +119,42 @@
 
     </main>
     <footer class="gallery-footer">
-  <div>© 2025 Dreamwalker</div>
+  <div>© 2025 DreamWalker Art Gallery. All rights reserved.</div>
 </footer>
 
+    <script>
+      // Hero transparency on scroll
+      function updateHeroTransparency() {
+        const heroSection = document.querySelector('.hero-section');
+        if (!heroSection) return;
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const heroHeight = heroSection.offsetHeight;
+        
+        // Calculate coverage percentage (0 = not covered, 1 = fully covered)
+        const coveragePercent = Math.min(scrollTop / heroHeight, 1);
+        
+        // Calculate opacity based on requirements:
+        // 25% covered (0.25) = 50% transparent (0.5 opacity)
+        // 50% covered (0.5) = fully transparent (0 opacity)
+        let opacity = 1;
+        if (coveragePercent >= 0.5) {
+          opacity = 0; // Fully transparent at 50% coverage or more
+        } else if (coveragePercent >= 0.25) {
+          // Linear interpolation from 50% to 0% opacity between 25% and 50% coverage
+          opacity = 1 - ((coveragePercent - 0.25) / 0.25) * 1;
+        } else if (coveragePercent > 0) {
+          // Linear interpolation from 100% to 50% opacity between 0% and 25% coverage
+          opacity = 1 - (coveragePercent / 0.25) * 0.5;
+        }
+        
+        heroSection.style.opacity = opacity;
+      }
+      
+      // Update on scroll and load
+      window.addEventListener('scroll', updateHeroTransparency);
+      window.addEventListener('load', updateHeroTransparency);
+      document.addEventListener('DOMContentLoaded', updateHeroTransparency);
+    </script>
   </body>
 </html>

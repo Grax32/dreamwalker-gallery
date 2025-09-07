@@ -1,14 +1,28 @@
 ---
 layout: layouts/base.njk
-title: "{{ caption }}"
+pagination:
+  data: gallery
+  size: 1
+  alias: item
 eleventyComputed:
-  permalink: "/gallery/{{ slug }}/"
+  title: "{{ item.caption }}"
+  permalink: "/gallery/{{ item.slug }}/"
 ---
  
-<article>
-  <h2>{{ caption }}</h2>
-  {% if image %}
-    {{ image(image, caption) | safe }}
-  {% endif %}
-  <p>{{ description or "" }}</p>
-</article>
+<div class="gallery-detail-container">
+  <article class="gallery-detail">
+    <h2>{{ item.caption }}</h2>
+    {% if item.image %}
+      <div class="gallery-detail-image">
+        <img src="{{ item.image }}" alt="{{ item.caption }}" loading="lazy" decoding="async">
+      </div>
+    {% endif %}
+    {% if item.description %}
+      <p class="gallery-detail-description">{{ item.description }}</p>
+    {% endif %}
+    
+    <nav class="gallery-nav">
+      <a href="/" class="back-link">← Back to Gallery</a>
+    </nav>
+  </article>
+</div>

@@ -6,37 +6,29 @@ This file documents the high-level checklist and plan for converting the site fr
 - # 11ty Migration Checklist
 
 - [X] Create a `react-old/` folder and move the current React/Vite site into it for reference (preserve history and build scripts).
-- [ ] Confirm templating engine: Nunjucks (default) or alternative (Liquid/Handlebars).
-- [ ] Add Eleventy dev dependency: `@11ty/eleventy` and image helper: `@11ty/eleventy-img`.
-- [ ] Keep `galleryData.js` as the single source of truth; re-export or import from `_data/gallery.js`.
-- [ ] Create `.eleventy.js` with passthrough copy for `public/` and image shortcode using `eleventy-img`.
-- [ ] Scaffold templates and includes under `src/`:
-  - `src/_includes/layouts/base.njk` — base HTML (head, CSS link, header/footer includes)
-  - `src/_includes/header.njk` — port from `GalleryHeader.jsx`
-  - `src/_includes/footer.njk` — port from `GalleryFooter.jsx`
-  - `src/_includes/gallery-item.njk` — gallery card include
-  - `src/index.njk` — home page that iterates `_data/gallery.js`
-  - `src/gallery/` or `src/gallery.njk` — per-item detail pages with permalink `/gallery/<slug>/`
-  - `src/404.njk` — optional 404 page
-- [ ] Copy or adapt CSS from `src/*.css` into `src/assets/css/` and reference from `base.njk`.
-- [ ] Add helper to produce deterministic slugs (use `slugify` or small util). Detect and handle duplicates.
-- [ ] Add npm scripts to `package.json`:
-  - `"build": "eleventy"`
-  - `"dev": "eleventy --serve --watch"`
-  - (optional) `"clean": "rimraf _site .cache"`
-- [ ] Implement smoke tests after build:
-  - Verify `_site/index.html` exists
-  - Verify at least one `_site/gallery/<slug>/index.html` exists
-- [ ] Plan image handling:
-  - Passthrough-copy raw assets in `public/` or
-  - Use `eleventy-img` to generate responsive images and WebP fallbacks during build
-- [ ] Run Eleventy build and iterate until no build-time errors remain.
-
-# Data contract (keep `galleryData` shape)
-
-- Input: an array of objects with keys: `title`, `image` (path), `description`, optional `slug`, optional `alt` and other metadata.
-- Output: generated pages: `/` (gallery grid) and `/gallery/<slug>/` (detail pages).
-- Error handling: missing image -> show placeholder; missing slug -> generate from title; duplicate slug -> append index.
+- [X] Confirm templating engine: Nunjucks (default) or alternative (Liquid/Handlebars).
+- [X] Add Eleventy dev dependency: `@11ty/eleventy` and image helper: `@11ty/eleventy-img`.
+- [X] Create `.eleventy.js` with passthrough copy for `public/` .
+- [X] Scaffold templates and includes under `src/`:
+  - [X] `src/_includes/layouts/base.njk` — base HTML (head, CSS link, header/footer includes)
+  - [X] `src/_includes/header.njk` — port from `GalleryHeader.jsx`
+  - [X] `src/_includes/footer.njk` — port from `GalleryFooter.jsx`
+  - [X] `src/_includes/gallery-item.njk` — gallery card include
+  - [X] `src/index.njk` — home page that iterates `_data/gallery.json`
+  - [X] `src/gallery/` or `src/gallery.njk` — per-item detail pages with permalink `/gallery/<slug>/`
+  - [ ] `src/404.njk` — optional 404 page
+- [X] Copy or adapt CSS from `src/*.css` into `src/assets/css/` and reference from `base.njk`.
+- [X] Add helper to produce deterministic slugs (use `slugify` or small util). Detect and handle duplicates.
+- [X] Add npm scripts to `package.json`:
+  - [X] `"build": "eleventy"`
+  - [X] `"dev": "eleventy --serve --watch"`
+  - [X] (optional) `"clean": "rimraf _site .cache"`
+- [X] Implement smoke tests after build:
+  - [X] Verify `_site/index.html` exists
+  - [X] Verify at least one `_site/gallery/<slug>/index.html` exists
+- [X] Plan image handling:
+  - [X] Passthrough-copy raw assets in `public/` 
+- [X] Run Eleventy build and iterate until no build-time errors remain.
 
 # Quality gates
 
@@ -47,11 +39,7 @@ This file documents the high-level checklist and plan for converting the site fr
 # Notes & next steps for implementer
 
 - Confirm templating preference (Nunjucks recommended).
-- When ready, create `_data/gallery.js` that imports the existing `src/galleryData.js` and exports it.
 - Create `.eleventy.js`, templates, and update `package.json` scripts, then run `npm run dev` or `npm run build` to validate.
 - Optionally add a migration branch `migrate/11ty` and open PR once verified.
 
 <!-- End of migration checklist -->
-
-
-DO NOT LINK TO ANYTHING IN `react-old/` FROM THE NEW ELEVENTY SITE. IT'S JUST FOR REFERENCE.

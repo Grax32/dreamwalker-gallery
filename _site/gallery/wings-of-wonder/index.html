@@ -3,15 +3,42 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{{ title or "The DreamWalker Gallery" }}</title>
+    <title>Wings of Wonder</title>
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body class="gallery-container">
-    {% include "header.njk" %}
+    <header class="navbar">
+  <div class="nav-brand">
+    <a href="/">The DreamWalker Gallery</a>
+  </div>
+  <nav class="nav-links">
+    <a href="/" class="nav-link">Home</a>
+  </nav>
+</header>
+
     <main class="gallery-main">
-      {{ content | safe }}
+       
+<div class="gallery-detail-container">
+  <article class="gallery-detail">
+    <h2>Wings of Wonder</h2>
+    
+      <div class="gallery-detail-image">
+        <img src="/assets/art/butterflies.jpg" alt="Wings of Wonder" loading="lazy" decoding="async">
+      </div>
+    
+    
+    
+    <nav class="gallery-nav">
+      <a href="/" class="back-link">← Back to Gallery</a>
+    </nav>
+  </article>
+</div>
+
     </main>
-    {% include "footer.njk" %}
+    <footer class="gallery-footer">
+  <div>© 2025 DreamWalker Art Gallery. All rights reserved.</div>
+</footer>
+
     <script>
       // Hero transparency on scroll
       function updateHeroTransparency() {

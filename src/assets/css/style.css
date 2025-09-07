@@ -1,32 +1,270 @@
-/* Combined and adapted styles from the React site */
+/* DreamWalker Gallery - Hero Layout with Dark Theme */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color-scheme: light dark;
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body.gallery-container {
-  background: #f8f8f8;
+  background: #0a0a0a;
   min-height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+  color: #fff;
 }
 
-.gallery-header {
-  background: #222;
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.nav-brand a {
   color: #fff;
-  padding: 2rem 1rem 1rem 1rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #007acc;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  background-image: url('/assets/img/art-science-love-garden.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.1s ease-out;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  opacity: 0.95;
+}
+
+/* Gallery Main */
+.gallery-main {
+  padding: 0;
+  background: #0a0a0a;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.gallery-item {
+  background: #111;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.gallery-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+  opacity: 0.8;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gallery detail page styles */
+.gallery-detail-container {
+  padding-top: 6rem;
+  min-height: 100vh;
+  background: #0a0a0a;
+}
+
+.gallery-detail {
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 2rem auto;
+  color: #fff;
+}
+
+.gallery-detail h2 {
+  margin: 0;
+  padding: 2rem;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 2rem;
   text-align: center;
 }
 
-.gallery-header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
-.gallery-header p { margin: 0.5rem 0 0 0; color: #b3e5fc; }
+.gallery-detail-image {
+  text-align: center;
+  background: #000;
+}
 
-.gallery-main { flex: 1; padding: 2rem 1rem; display: flex; justify-content: center; }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; width:100%; max-width:1100px; }
-.gallery-item { background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); overflow:hidden; text-align:center; transition:transform 0.2s; }
-.gallery-item:hover { transform: translateY(-6px) scale(1.03); box-shadow:0 6px 24px rgba(0,0,0,0.13); }
-.gallery-item img { width:100%; height:260px; object-fit:cover; display:block; }
-.caption { padding:0.8rem 0.5rem; font-size:1.1rem; color:#333; background:#f1f1f1; }
-.gallery-footer { background:#222; color:#b3e5fc; text-align:center; padding:1rem; }
+.gallery-detail-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-detail-description {
+  padding: 2rem;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.gallery-nav {
+  padding: 2rem;
+  text-align: center;
+  background: #1a1a1a;
+}
+
+.back-link {
+  display: inline-block;
+  color: #007acc;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #007acc;
+  transition: all 0.3s;
+}
+
+.back-link:hover {
+  background: #007acc;
+  color: #fff;
+}
+
+/* Footer */
+.gallery-footer {
+  background: #000;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
