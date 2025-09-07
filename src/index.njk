@@ -10,9 +10,16 @@ title: The DreamWalker Gallery
   </div>
 </section>
 
-<section class="gallery-grid">
-  {% for item in gallery %}
-    {% set galleryItem = item %}
-    {% include "gallery-item.njk" %}
-  {% endfor %}
+<section class="gallery-section">
+  <div class="gallery-intro">
+    <h2>Featured Artworks</h2>
+    <p>Explore our collection of {{ gallery.length }} surreal and imaginative pieces</p>
+  </div>
+  
+  <div class="gallery-grid">
+    {% for item in gallery %}
+      {% set galleryItem = item %}
+      {% include "gallery-item.njk" %}
+    {% endfor %}
+  </div>
 </section>
