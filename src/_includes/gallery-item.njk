@@ -1,0 +1,10 @@
+<article class="gallery-item">
+  <a href="/gallery/{{ galleryItem.slug }}/">
+    {% if galleryItem.image %}
+      <img src="{{ galleryItem.image }}" alt="{{ galleryItem.caption }}" loading="lazy" decoding="async">
+    {% else %}
+      <img src="/assets/img/placeholder.svg" alt="{{ galleryItem.caption }}">
+    {% endif %}
+    <div class="caption">{{ galleryItem.caption }}</div>
+  </a>
+</article>

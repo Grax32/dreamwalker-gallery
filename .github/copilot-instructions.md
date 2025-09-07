@@ -5,7 +5,7 @@ This file documents the high-level checklist and plan for converting the site fr
 
 - # 11ty Migration Checklist
 
-- [ ] Create a `react-old/` folder and move the current React/Vite site into it for reference (preserve history and build scripts).
+- [X] Create a `react-old/` folder and move the current React/Vite site into it for reference (preserve history and build scripts).
 - [ ] Confirm templating engine: Nunjucks (default) or alternative (Liquid/Handlebars).
 - [ ] Add Eleventy dev dependency: `@11ty/eleventy` and image helper: `@11ty/eleventy-img`.
 - [ ] Keep `galleryData.js` as the single source of truth; re-export or import from `_data/gallery.js`.
@@ -52,3 +52,6 @@ This file documents the high-level checklist and plan for converting the site fr
 - Optionally add a migration branch `migrate/11ty` and open PR once verified.
 
 <!-- End of migration checklist -->
+
+
+DO NOT LINK TO ANYTHING IN `react-old/` FROM THE NEW ELEVENTY SITE. IT'S JUST FOR REFERENCE.

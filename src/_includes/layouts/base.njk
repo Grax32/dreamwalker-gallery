@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ title or "Dreamwalker Gallery" }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body class="gallery-container">
+    {% include "header.njk" %}
+    <main class="gallery-main">
+      {{ content | safe }}
+    </main>
+    {% include "footer.njk" %}
+  </body>
+</html>

@@ -1,0 +1,10 @@
+[
+  { "image": "/assets/art/great-blue-heron-3048x4544.jpg", "caption": "Majesty on the Water", "slug": "majesty-on-the-water" },
+  { "image": "/assets/art/rhino.jpg", "caption": "Ancient Strength: The Dreaming Rhino", "slug": "ancient-strength-the-dreaming-rhino" },
+  { "image": "/assets/art/foggy-day.jpg", "caption": "Whispers in the Mist", "slug": "whispers-in-the-mist" },
+  { "image": "/assets/art/butterflies.jpg", "caption": "Wings of Wonder", "slug": "wings-of-wonder" },
+  { "image": "/assets/art/hawk.jpg", "caption": "Soaring Spirit", "slug": "soaring-spirit" },
+  { "image": "/assets/art/poinsettia.jpg", "caption": "Festive Bloom", "slug": "festive-bloom" },
+  { "image": "/assets/art/roses.jpg", "caption": "Timeless Beauty", "slug": "timeless-beauty" },
+  { "image": "/assets/art/trumpet-flower.jpg", "caption": "Vibrant Melody", "slug": "vibrant-melody" }
+]

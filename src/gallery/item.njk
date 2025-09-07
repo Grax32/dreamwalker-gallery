@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+title: "{{ caption }}"
+eleventyComputed:
+  permalink: "/gallery/{{ slug }}/"
+---
+ 
+<article>
+  <h2>{{ caption }}</h2>
+  {% if image %}
+    {{ image(image, caption) | safe }}
+  {% endif %}
+  <p>{{ description or "" }}</p>
+</article>
