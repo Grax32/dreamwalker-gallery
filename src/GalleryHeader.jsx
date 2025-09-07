@@ -15,7 +15,11 @@ const GalleryHeader = () => (
     alignItems: 'center',
     position: 'sticky',
     top: 0,
-    zIndex: 1000
+    zIndex: 1000,
+    width: '100vw',           // force viewport width
+    left: '50%',
+    transform: 'translateX(-50%)', // center the 100vw bar
+    boxSizing: 'border-box'
   }}>
     <h1 style={{fontSize: '1.5rem', color: '#d1b3ff', letterSpacing: '2px', margin: 0}}>The DreamWalker Gallery</h1>
     <nav>

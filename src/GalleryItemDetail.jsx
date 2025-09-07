@@ -1,14 +1,23 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import galleryData from './galleryData';
 
 const GalleryItemDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const item = galleryData.find(item => item.slug === slug);
+  const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
+    // measure header to offset the fixed detail view below it
+    const header = document.querySelector('header');
+    const h = header ? header.getBoundingClientRect().height : 0;
+    setHeaderHeight(h);
     window.scrollTo(0, 0);
+    // recalc on resize
+    const onResize = () => setHeaderHeight(header ? header.getBoundingClientRect().height : (document.querySelector('header')?.getBoundingClientRect().height || 0));
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, [slug]);
 
   if (!item) {
@@ -22,12 +31,29 @@ const GalleryItemDetail = () => {
   const nextItem = hasNext ? galleryData[currentIndex + 1] : null;
 
   return (
-    <div style={{backgroundColor: '#0b0b14', color: '#e0d7f5', height: '100vh', width: '100vw', fontFamily: "'Segoe UI', sans-serif", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', boxSizing: 'border-box'}}>
-      <div style={{textAlign: 'center', width: '100%'}}>
+    <div style={{
+      position: 'fixed',
+      top: headerHeight,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: '#0b0b14',
+      color: '#e0d7f5',
+      fontFamily: "'Segoe UI', sans-serif",
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      boxSizing: 'border-box',
+      padding: '2rem',
+      overflow: 'auto',
+      zIndex: 50
+    }}>
+      <div style={{width: '100%', maxWidth: '1280px', textAlign: 'center'}}>
         <img
           src={item.src}
           alt={item.caption}
-          style={{maxWidth: '80%', maxHeight: '70vh', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.6)'}}
+          style={{width: '100%', maxWidth: '900px', height: 'auto', objectFit: 'contain', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.6)', display: 'block', margin: '0 auto'}}
         />
         <h2 style={{color: '#d1b3ff', marginTop: '1rem'}}>{item.caption}</h2>
         <div style={{marginTop: '2rem'}}>
