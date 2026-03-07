@@ -17,10 +17,11 @@ Use the attached reference image as the visual basis for all waiter characters.
    - Shot framing: camera slightly higher so there is visible space above his head
 
 ## Shared environment
-- Warm elegant restaurant interior
+- Warm elegant restaurant interior as the baseline setting
 - Playful tone
 - Instantly readable composition
 - Suitable for a fast music video
+- Allow scene-specific location variants when defined in the shot list (for example: outdoor grill, curry-house dining)
 
 ## Presence rule for every shot
 Use exactly the waiter(s) specified in each shot brief.
