@@ -1,0 +1,48 @@
+{
+  "project": "dreamwalker-cheese-story",
+  "reference_image": "../.attachments/waiters-reference.jpg",
+  "global_style": {
+    "tone": ["playful", "instantly readable", "whimsical realism"],
+    "setting": "warm elegant restaurant interior",
+    "costume": "classic black vest, white shirt, bow tie",
+    "color": "warm golden cinematic light"
+  },
+  "shots": [
+    {
+      "id": "shot-a-jacques",
+      "title": "Jacques solo platter flourish",
+      "waiters_allowed": ["Jacques"],
+      "prompt": "based on the waiter reference image, Jacques the tall waiter confidently presenting a covered silver platter with a playful smile in a warm elegant restaurant interior, cinematic golden lighting, clear silhouette, fast-music-video readability, camera slightly low so the top of his top hat is cropped out of frame",
+      "negative_prompt": "Marco, Gus, extra waiters, crowding main subject, hat fully visible, flat lighting, dark moody horror tone",
+      "checks": [
+        "Only Jacques appears",
+        "Top of hat is cropped",
+        "Playful readable pose"
+      ]
+    },
+    {
+      "id": "shot-b-marco",
+      "title": "Marco solo cheese stack",
+      "waiters_allowed": ["Marco"],
+      "prompt": "based on the waiter reference image, Marco the round cheerful waiter balancing a tower of cheese wedges and grinning at camera, warm elegant restaurant interior, polished wood highlights, playful high-energy mood, clean composition, Marco centered and fully inside the frame with comfortable headroom",
+      "negative_prompt": "Jacques, Gus, extra waiters, cropped Marco head, extreme fisheye distortion, cluttered background",
+      "checks": [
+        "Only Marco appears",
+        "Marco fully in frame",
+        "Readable energetic silhouette"
+      ]
+    },
+    {
+      "id": "shot-c-gus",
+      "title": "Gus solo service bell",
+      "waiters_allowed": ["Gus"],
+      "prompt": "based on the waiter reference image, Gus the short waiter proudly ringing a small service bell beside a tiny cheese cart, warm elegant restaurant interior, rich cozy color, playful expression, camera slightly higher so there is visible space above his head, instantly readable composition",
+      "negative_prompt": "Jacques, Marco, extra waiters, low-angle camera, cramped headroom, dull lighting",
+      "checks": [
+        "Only Gus appears",
+        "Visible space above head",
+        "Short energetic character read"
+      ]
+    }
+  ]
+}

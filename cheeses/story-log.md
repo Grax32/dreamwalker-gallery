@@ -8,6 +8,7 @@
 
 - Replaced the starter sequence with a merged 18-beat scene list that resolves duplicate concepts and adds timing guidance.
 - Expanded setting guidance to permit explicit scene-specific variants while keeping restaurant-comedy continuity.
+- Added a generation guide and JSON prompt pack to produce images directly from shot briefs.
 
 ## Next additions
 - Add beat-by-beat sequence timing for fast music sync.
