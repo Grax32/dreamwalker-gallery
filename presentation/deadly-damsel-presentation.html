@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deadly Damsel — Timed Poem Presentation</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f1116;
+        --panel: #171b24;
+        --text: #f3f5f8;
+        --muted: #adb5c3;
+        --accent: #d4b07a;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Georgia", "Times New Roman", serif;
+        background: radial-gradient(circle at top, #1f2430 0%, var(--bg) 50%, #090b0f 100%);
+        color: var(--text);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        justify-content: center;
+        background: rgba(23, 27, 36, 0.95);
+        border-bottom: 1px solid rgba(212, 176, 122, 0.25);
+        padding: 0.9rem;
+        font-family: Arial, sans-serif;
+      }
+
+      label {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      input[type="number"] {
+        width: 5.5rem;
+        border: 1px solid rgba(212, 176, 122, 0.35);
+        background: #0f1116;
+        color: var(--text);
+        border-radius: 0.45rem;
+        padding: 0.35rem 0.45rem;
+      }
+
+      button {
+        border: 1px solid rgba(212, 176, 122, 0.4);
+        background: #0f1116;
+        color: var(--text);
+        border-radius: 999px;
+        padding: 0.45rem 0.9rem;
+        cursor: pointer;
+      }
+
+      button:hover {
+        border-color: var(--accent);
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      main {
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+      }
+
+      .slide {
+        width: min(920px, 92vw);
+        min-height: 58vh;
+        background: rgba(23, 27, 36, 0.82);
+        border: 1px solid rgba(212, 176, 122, 0.24);
+        border-radius: 1rem;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+        padding: 2.5rem clamp(1.2rem, 2.2vw, 2.8rem);
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 700ms ease, transform 700ms ease;
+      }
+
+      .slide.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4.8vw, 3.2rem);
+        margin: 0;
+        letter-spacing: 0.03em;
+      }
+
+      h2 {
+        margin-top: 0.45rem;
+        color: var(--accent);
+        font-weight: normal;
+      }
+
+      p {
+        margin: 0;
+        font-size: clamp(1.28rem, 2.1vw, 1.8rem);
+        line-height: 1.75;
+        white-space: pre-line;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-family: Arial, sans-serif;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+        border-top: 1px solid rgba(212, 176, 122, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="controls">
+      <label for="duration">Total duration (seconds):</label>
+      <input id="duration" type="number" min="60" step="5" value="180" />
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="restart">Restart</button>
+      <span id="status" class="meta">Ready. Default: ~3:00</span>
+    </section>
+
+    <main>
+      <article id="slide" class="slide visible"></article>
+    </main>
+
+    <footer>
+      Use the duration control to speed up or slow down the full presentation.
+    </footer>
+
+    <script>
+      const slides = [
+        { type: "title", title: "Deadly Damsel", subtitle: "A timed poem presentation" },
+        { text: "They came with smiles like polished glass,\nWith velvet words and tailored lies,\nThey spoke of fortunes, safe and vast,\nReflections dancing in their eyes." },
+        { text: "Her father signed with steady hand,\nHer mother breathed a hopeful prayer,\nThey built their dreams on promised land—\nAnd left their future resting there." },
+        { text: "But paper burns and ink can fade,\nAnd truth can rot beneath a seal,\nThe gold they swore was safely laid\nWas nothing more than gilded steel." },
+        { text: "The letters stopped. The numbers fell.\nThe doors were closed. The voices gone.\nNo trace remained. No tale to tell.\nJust silence stretching, cold and long." },
+        { text: "Her mother’s eyes grew thin with dread,\nHer father’s shoulders bent with shame,\nThe house felt hollow, hope lay dead—\nAnd she alone still held a flame." },
+        { text: "Not rage at first, but something still,\nA quiet weight beneath her breath,\nA sharpened edge of iron will\nThat slowly turned its face to death." },
+        { text: "She traced the names, the hidden trails,\nThe shell of firms, the phantom trades,\nEach thread a whisper, thin and pale,\nEach lie a mask that never fades." },
+        { text: "She learned their habits, learned their games,\nThe way they moved, the way they fed,\nThe polished shoes, the borrowed names—\nThe scent of comfort in their thread." },
+        { text: "And when she found them, fat with ease,\nBehind their guarded, gleaming doors,\nShe did not knock. She did not plead.\nShe knew what justice now was for." },
+        { text: "No courtroom oath, no jury’s nod,\nNo gavel’s fall to make things right,\nThe law had bent, the law had flawed—\nIt could not see beyond their light." },
+        { text: "So she became a darker law,\nA reckoning without a name,\nA whispered shape that no one saw,\nA shadow stepping through their flame." },
+        { text: "One by one, their towers cracked,\nTheir fortunes bled through unseen seams,\nTheir ledgers turned, their pathways hacked,\nTheir empires dissolved like waking dreams." },
+        { text: "And those who laughed at others’ pain\nNow trembled at a closing door,\nA footstep echoing down the grain—\nA balance they could dodge no more." },
+        { text: "She never spoke. She never stayed.\nNo mark, no trace, no claim to fame,\nJust debts collected, cleanly paid,\nAnd fear that followed where she came." },
+        { text: "At dawn she stood beside her kin,\nThe quiet world returned to gray,\nNo one would know the storm within—\nOr how the night had cleared the way." },
+        { text: "A damsel once, by story cast,\nNow something sharper, something free—\nNot bound by what was lost in past,\nBut forged by what she chose to be." }
+      ];
+
+      const slideEl = document.getElementById("slide");
+      const durationInput = document.getElementById("duration");
+      const statusEl = document.getElementById("status");
+      const startBtn = document.getElementById("start");
+      const pauseBtn = document.getElementById("pause");
+      const restartBtn = document.getElementById("restart");
+
+      let index = 0;
+      let timer = null;
+      let running = false;
+      let msPerSlide = 0;
+
+      function renderSlide(i) {
+        const current = slides[i];
+        slideEl.classList.remove("visible");
+        setTimeout(() => {
+          if (current.type === "title") {
+            slideEl.innerHTML = `<h1>${current.title}</h1><h2>${current.subtitle}</h2>`;
+          } else {
+            slideEl.innerHTML = `<p>${current.text}</p>`;
+          }
+          slideEl.classList.add("visible");
+        }, 120);
+      }
+
+      function formatClock(totalSeconds) {
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        return `${mins}:${String(secs).padStart(2, "0")}`;
+      }
+
+      function calculateTiming() {
+        const totalSeconds = Number(durationInput.value) || 180;
+        msPerSlide = Math.max(1000, Math.round((totalSeconds / slides.length) * 1000));
+        statusEl.textContent = `Duration: ${formatClock(totalSeconds)} • ${slides.length} slides • ${(
+          msPerSlide / 1000
+        ).toFixed(1)}s per slide`;
+      }
+
+      function stopTimer() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      function startPresentation(fromCurrent = true) {
+        if (!fromCurrent) index = 0;
+        calculateTiming();
+        renderSlide(index);
+        stopTimer();
+
+        running = true;
+        statusEl.textContent += " • Playing";
+        timer = setInterval(() => {
+          index += 1;
+          if (index >= slides.length) {
+            stopTimer();
+            running = false;
+            index = slides.length - 1;
+            statusEl.textContent = "Finished. Press Restart to play again.";
+            return;
+          }
+          renderSlide(index);
+        }, msPerSlide);
+      }
+
+      startBtn.addEventListener("click", () => {
+        if (!running) startPresentation(true);
+      });
+
+      pauseBtn.addEventListener("click", () => {
+        stopTimer();
+        running = false;
+        statusEl.textContent = "Paused.";
+      });
+
+      restartBtn.addEventListener("click", () => {
+        stopTimer();
+        running = false;
+        index = 0;
+        startPresentation(false);
+      });
+
+      durationInput.addEventListener("change", () => {
+        calculateTiming();
+      });
+
+      renderSlide(0);
+      calculateTiming();
+    </script>
+  </body>
+</html>
