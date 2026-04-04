@@ -4,6 +4,7 @@ module.exports = function (eleventyConfig) {
   // Passthrough copies for static assets
   eleventyConfig.addPassthroughCopy({
     "src/assets": "assets",
+    presentation: "presentation",
   });
 
   // Simple image shortcode: returns a standard <img> tag. No external packages required.
@@ -29,4 +30,3 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["html", "njk", "md"],
   };
 };
-
