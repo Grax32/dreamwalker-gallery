@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve --watch",
-    "build": "npx @11ty/eleventy",
+    "dev": "eleventy --serve --watch",
+    "build": "eleventy",
     "clean": "rimraf _site .cache"
   },
   "devDependencies": {

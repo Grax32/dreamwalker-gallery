@@ -1,10 +1,10 @@
 [
-  { "image": "/assets/art/great-blue-heron-3048x4544.jpg", "caption": "Majesty on the Water", "slug": "majesty-on-the-water" },
-  { "image": "/assets/art/rhino.jpg", "caption": "Ancient Strength: The Dreaming Rhino", "slug": "ancient-strength-the-dreaming-rhino" },
-  { "image": "/assets/art/foggy-day.jpg", "caption": "Whispers in the Mist", "slug": "whispers-in-the-mist" },
-  { "image": "/assets/art/butterflies.jpg", "caption": "Wings of Wonder", "slug": "wings-of-wonder" },
-  { "image": "/assets/art/hawk.jpg", "caption": "Soaring Spirit", "slug": "soaring-spirit" },
-  { "image": "/assets/art/poinsettia.jpg", "caption": "Festive Bloom", "slug": "festive-bloom" },
-  { "image": "/assets/art/roses.jpg", "caption": "Timeless Beauty", "slug": "timeless-beauty" },
-  { "image": "/assets/art/trumpet-flower.jpg", "caption": "Vibrant Melody", "slug": "vibrant-melody" }
+  { "image": "/assets/art/great-blue-heron-3048x4544.jpg", "caption": "Majesty on the Water", "slug": "majesty-on-the-water", "focalPoint": {"x":0.6569,"y":0.1815} },
+  { "image": "/assets/art/rhino.jpg", "caption": "Ancient Strength: The Dreaming Rhino", "slug": "ancient-strength-the-dreaming-rhino", "focalPoint": {"x":0.276,"y":0.4904} },
+  { "image": "/assets/art/foggy-day.jpg", "caption": "Whispers in the Mist", "slug": "whispers-in-the-mist", "focalPoint": {"x":0.4312,"y":0.7061} },
+  { "image": "/assets/art/butterflies.jpg", "caption": "Wings of Wonder", "slug": "wings-of-wonder", "focalPoint": {"x":0.5037,"y":0.1836} },
+  { "image": "/assets/art/hawk.jpg", "caption": "Soaring Spirit", "slug": "soaring-spirit", "focalPoint": {"x":0.5361,"y":0.3063} },
+  { "image": "/assets/art/poinsettia.jpg", "caption": "Festive Bloom", "slug": "festive-bloom", "focalPoint": {"x":0.5817,"y":0.9029} },
+  { "image": "/assets/art/roses.jpg", "caption": "Timeless Beauty", "slug": "timeless-beauty", "focalPoint": {"x":0.5644,"y":0.4734} },
+  { "image": "/assets/art/trumpet-flower.jpg", "caption": "Vibrant Melody", "slug": "vibrant-melody", "focalPoint": {"x":0.7089,"y":0.0736} }
 ]

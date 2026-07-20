@@ -1,7 +1,13 @@
 <article class="gallery-item">
   <a href="/gallery/{{ galleryItem.slug }}/">
     {% if galleryItem.image %}
-      <img src="{{ galleryItem.image }}" alt="{{ galleryItem.caption }}" loading="lazy" decoding="async">
+      <img
+        src="{{ galleryItem.image }}"
+        alt="{{ galleryItem.caption }}"
+        loading="lazy"
+        decoding="async"
+        style="--focal-x: {{ (galleryItem.focalPoint.x | default(0.5)) * 100 }}%; --focal-y: {{ (galleryItem.focalPoint.y | default(0.5)) * 100 }}%;"
+      >
     {% else %}
       <img src="/assets/img/placeholder.svg" alt="{{ galleryItem.caption }}">
     {% endif %}

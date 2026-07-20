@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thumbnail focal-point editor</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #111; color: #eee; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { position: sticky; top: 0; z-index: 2; display: flex; gap: 1rem; align-items: center; padding: .8rem 1rem; background: #191919; border-bottom: 1px solid #333; }
+    select, button { font: inherit; color: inherit; background: #292929; border: 1px solid #555; border-radius: .4rem; padding: .55rem .7rem; }
+    select { min-width: min(28rem, 50vw); }
+    button { cursor: pointer; background: #3159d9; border-color: #5275e7; }
+    button:disabled { cursor: wait; opacity: .55; }
+    #status { color: #aaa; }
+    main { display: grid; grid-template-columns: minmax(0, 1fr) 22rem; gap: 1.5rem; padding: 1.5rem; }
+    .instructions { color: #aaa; margin-top: 0; }
+    .stage { min-height: 30rem; display: grid; place-items: center; padding: 1rem; background: #080808; border: 1px solid #333; border-radius: .75rem; }
+    .stage-media { position: relative; display: inline-block; line-height: 0; cursor: crosshair; }
+    .stage img { display: block; max-width: 100%; max-height: 68vh; width: auto; height: auto; user-select: none; }
+    .marker { position: absolute; left: 50%; top: 50%; width: 1.5rem; height: 1.5rem; border: 3px solid white; border-radius: 50%; box-shadow: 0 0 0 2px #000, 0 1px 8px #000; transform: translate(-50%, -50%); pointer-events: none; }
+    aside { min-width: 0; }
+    .preview-grid { display: grid; gap: 1rem; }
+    figure { margin: 0; }
+    figure img { width: 100%; display: block; object-fit: cover; object-position: var(--x) var(--y); border-radius: .5rem; background: #050505; }
+    .landscape { aspect-ratio: 4 / 3; }
+    .square { aspect-ratio: 1; }
+    .portrait { aspect-ratio: 3 / 4; }
+    figcaption { margin-top: .35rem; color: #999; font-size: .85rem; }
+    .coordinates { font-family: ui-monospace, monospace; color: #bbb; }
+    @media (max-width: 850px) { main { grid-template-columns: 1fr; } .preview-grid { grid-template-columns: repeat(3, 1fr); } }
+  </style>
+</head>
+<body>
+  <header>
+    <label for="artwork">Artwork</label>
+    <select id="artwork"></select>
+    <button id="save" type="button">Save focal point</button>
+    <span id="status" role="status"></span>
+  </header>
+  <main>
+    <section>
+      <p class="instructions">Click the most important part of the image. The previews show how that point stays visible at common thumbnail shapes.</p>
+      <div class="stage">
+        <div class="stage-media">
+          <img id="source" alt="">
+          <span class="marker" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+    <aside>
+      <h2>Crop previews</h2>
+      <p class="coordinates" id="coordinates"></p>
+      <div class="preview-grid">
+        <figure><img class="landscape preview" alt=""><figcaption>4:3 gallery</figcaption></figure>
+        <figure><img class="square preview" alt=""><figcaption>Square</figcaption></figure>
+        <figure><img class="portrait preview" alt=""><figcaption>3:4 portrait</figcaption></figure>
+      </div>
+    </aside>
+  </main>
+  <script>
+    const select = document.querySelector("#artwork");
+    const source = document.querySelector("#source");
+    const marker = document.querySelector(".marker");
+    const previews = [...document.querySelectorAll(".preview")];
+    const coordinates = document.querySelector("#coordinates");
+    const saveButton = document.querySelector("#save");
+    const status = document.querySelector("#status");
+    let gallery = [];
+    let point = { x: 0.5, y: 0.5 };
+
+    function selectedItem() {
+      return gallery.find((item) => item.slug === select.value);
+    }
+
+    function renderPoint() {
+      marker.style.left = `${point.x * 100}%`;
+      marker.style.top = `${point.y * 100}%`;
+      previews.forEach((preview) => {
+        preview.style.setProperty("--x", `${point.x * 100}%`);
+        preview.style.setProperty("--y", `${point.y * 100}%`);
+      });
+      coordinates.textContent = `x: ${point.x.toFixed(4)}, y: ${point.y.toFixed(4)}`;
+      status.textContent = "Unsaved";
+    }
+
+    function renderItem() {
+      const item = selectedItem();
+      point = { x: item.focalPoint?.x ?? 0.5, y: item.focalPoint?.y ?? 0.5 };
+      source.src = item.image;
+      source.alt = item.caption;
+      previews.forEach((preview) => { preview.src = item.image; preview.alt = item.caption; });
+      renderPoint();
+      status.textContent = item.focalPoint ? "Saved" : "Using center default";
+    }
+
+    source.addEventListener("click", (event) => {
+      const rect = source.getBoundingClientRect();
+      point = {
+        x: Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width)),
+        y: Math.max(0, Math.min(1, (event.clientY - rect.top) / rect.height)),
+      };
+      renderPoint();
+    });
+
+    select.addEventListener("change", renderItem);
+
+    saveButton.addEventListener("click", async () => {
+      saveButton.disabled = true;
+      status.textContent = "Saving…";
+      try {
+        const response = await fetch("/__dev/api/focal-point", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: select.value, ...point }),
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || "Could not save");
+        selectedItem().focalPoint = result.focalPoint;
+        point = result.focalPoint;
+        renderPoint();
+        status.textContent = "Saved";
+      } catch (error) {
+        status.textContent = error.message;
+      } finally {
+        saveButton.disabled = false;
+      }
+    });
+
+    fetch("/__dev/api/gallery")
+      .then((response) => response.json())
+      .then((items) => {
+        gallery = items;
+        select.innerHTML = gallery.map((item) => `<option value="${item.slug}">${item.caption}</option>`).join("");
+        renderItem();
+      })
+      .catch((error) => { status.textContent = error.message; });
+  </script>
+</body>
+</html>

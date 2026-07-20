@@ -1,4 +1,5 @@
 const path = require("path");
+const focalPointEditor = require("./dev/focal-point-editor");
 
 module.exports = function (eleventyConfig) {
   // Passthrough copies for static assets
@@ -13,8 +14,10 @@ module.exports = function (eleventyConfig) {
     return `<img src="${src}" alt="${alt}" loading="lazy" decoding="async">`;
   });
 
-  eleventyConfig.setBrowserSyncConfig({
-    notify: false,
+  // Development-only UI and API for choosing thumbnail focal points.
+  // This middleware is only used by `eleventy --serve`; it is not emitted to _site.
+  eleventyConfig.setServerOptions({
+    middleware: [focalPointEditor],
   });
 
   return {
