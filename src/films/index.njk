@@ -1,0 +1,62 @@
+---
+layout: layouts/base.njk
+title: DreamWalker Films
+bodyClass: films-page
+pageStyles: /films/films.css
+pageScript: /films/films.js
+---
+
+<section class="films-hero">
+  <div class="films-hero__copy">
+    <div class="films-eyebrow">DREAMWALKER ORIGINAL</div>
+    <h1>Stories worth<br>getting lost in.</h1>
+    <p>Thirty-two original films. One image each. No clutter—just the movie, its poster, and the story.</p>
+    <a class="films-button films-button--primary" href="#film-catalog">Explore the collection</a>
+  </div>
+</section>
+
+<section class="films-controls" id="film-catalog" aria-labelledby="films-heading">
+  <div>
+    <h2 id="films-heading">Browse Films</h2>
+    <p><span id="film-count">{{ films.length }}</span> titles</p>
+  </div>
+  <div class="films-control-row">
+    <label class="visually-hidden" for="film-search">Search films</label>
+    <input id="film-search" type="search" placeholder="Search titles or synopsis…">
+    <label class="visually-hidden" for="film-genre">Filter by genre</label>
+    <select id="film-genre">
+      <option value="">All genres</option>
+    </select>
+  </div>
+</section>
+
+<section class="films-grid" id="film-grid" aria-live="polite">
+  {% for film in films %}
+    <article class="film-card" tabindex="0"
+      data-film-index="{{ loop.index0 }}"
+      data-title="{{ film.title | escape }}"
+      data-genre="{{ film.genre | escape }}"
+      data-synopsis="{{ film.synopsis | escape }}">
+      <div class="film-poster-wrap">
+        <img src="/films/{{ film.poster }}" alt="{{ film.title | escape }} poster" loading="lazy" decoding="async">
+      </div>
+      <h3>{{ film.title }}</h3>
+      <div class="film-meta">{{ film.year }} · {{ film.genre }} · {{ film.runtime }}</div>
+    </article>
+  {% endfor %}
+</section>
+
+<div class="film-modal" id="film-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="film-modal-title">
+  <div class="film-modal__card">
+    <button class="film-modal__close" id="film-modal-close" type="button" aria-label="Close film details">×</button>
+    <img id="film-modal-poster" alt="">
+    <div class="film-modal__copy">
+      <div class="films-eyebrow" id="film-modal-genre"></div>
+      <h2 id="film-modal-title"></h2>
+      <div class="film-meta" id="film-modal-meta"></div>
+      <p id="film-modal-synopsis"></p>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="films-data">{{ films | dump | safe }}</script>

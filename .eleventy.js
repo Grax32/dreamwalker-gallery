@@ -5,6 +5,9 @@ module.exports = function (eleventyConfig) {
   // Passthrough copies for static assets
   eleventyConfig.addPassthroughCopy({
     "src/assets": "assets",
+    "src/films/posters": "films/posters",
+    "src/films/films.css": "films/films.css",
+    "src/films/films.js": "films/films.js",
     presentation: "presentation",
   });
 

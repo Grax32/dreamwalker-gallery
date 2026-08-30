@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0e1421"/><stop offset="1" stop-color="#26355c"/></linearGradient>
+  <radialGradient id="r"><stop stop-color="#b35d35" stop-opacity=".9"/><stop offset="1" stop-color="#b35d35" stop-opacity="0"/></radialGradient>
+  <filter id="noise"><feTurbulence baseFrequency=".8" numOctaves="2" stitchTiles="stitch" type="fractalNoise"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .06"/></feComponentTransfer></filter>
+</defs>
+<rect width="600" height="900" fill="url(#g)"/>
+<circle cx="460" cy="180" r="150" fill="url(#r)"/>
+<path d="M0 520 Q 180 260, 300 420 T600 350 V900 H0Z" fill="#0e1421" opacity=".74"/>
+<path d="M0 560 Q 150 478, 360 610 T600 490" fill="none" stroke="#b35d35" stroke-opacity=".28" stroke-width="3"/>
+<g opacity=".92">
+  <circle cx="300" cy="330" r="48" fill="#b35d35" opacity=".17"/>
+  <rect x="286" y="350" width="28" height="110" rx="12" fill="#f5f1e8" opacity=".55"/>
+</g>
+<rect width="600" height="900" filter="url(#noise)" opacity=".7"/>
+<style>
+.title{font-family:Georgia,serif;font-size:44px;font-weight:700;letter-spacing:3px;fill:#f3eee5}
+.genre{font-family:Arial,sans-serif;font-size:18px;letter-spacing:6px;fill:#b35d35}
+.brand{font-family:Arial,sans-serif;font-size:14px;letter-spacing:5px;fill:#f3eee5;opacity:.7}
+</style>
+<text x="300" y="70" text-anchor="middle" class="brand">DREAM WALKER FILMS</text>
+<text x="300" y="115" text-anchor="middle" class="genre">SCI-FI</text>
+<text x="300" y="520" text-anchor="middle" class="title">STARFALL LEGACY</text>
+<text x="300" y="840" text-anchor="middle" class="brand">AN ORIGINAL FILM</text>
+</svg>

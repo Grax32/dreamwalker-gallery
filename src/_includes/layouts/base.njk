@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{ title or "The DreamWalker Gallery" }}</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    {% if pageStyles %}<link rel="stylesheet" href="{{ pageStyles }}">{% endif %}
   </head>
-  <body class="gallery-container">
+  <body class="gallery-container{% if bodyClass %} {{ bodyClass }}{% endif %}">
     {% include "header.njk" %}
     <main class="gallery-main">
       {{ content | safe }}
     </main>
     {% include "footer.njk" %}
+    {% if pageScript %}<script src="{{ pageScript }}" defer></script>{% endif %}
     <script>
       // Hero transparency on scroll
       function updateHeroTransparency() {

@@ -1,0 +1,258 @@
+[
+  {
+    "title": "The Night Whisperer",
+    "genre": "Horror",
+    "synopsis": "A skeptical sleep researcher travels to a mountain town where residents share the same recurring nightmare\u2014and discovers the dream may be trying to escape.",
+    "poster": "posters/the-night-whisperer.svg",
+    "year": "2026",
+    "runtime": "1h 38m"
+  },
+  {
+    "title": "After the Light",
+    "genre": "Drama",
+    "synopsis": "After a solar storm erases modern communications, an estranged mother and daughter cross a fractured country to find the family they left behind.",
+    "poster": "posters/after-the-light.svg",
+    "year": "2025",
+    "runtime": "2h 45m"
+  },
+  {
+    "title": "Iron Reckoning",
+    "genre": "Action",
+    "synopsis": "A former intelligence officer is forced out of hiding when a prototype weapons system begins targeting the people who helped expose it.",
+    "poster": "posters/iron-reckoning.svg",
+    "year": "2024",
+    "runtime": "1h 52m"
+  },
+  {
+    "title": "Falling Through Time",
+    "genre": "Romance",
+    "synopsis": "Two strangers discover they can meet for exactly eleven minutes each night\u2014despite living thirty years apart.",
+    "poster": "posters/falling-through-time.svg",
+    "year": "2023",
+    "runtime": "2h 59m"
+  },
+  {
+    "title": "State of Silence",
+    "genre": "Thriller",
+    "synopsis": "A junior congressional aide uncovers a classified program designed to erase inconvenient truths from the public record.",
+    "poster": "posters/state-of-silence.svg",
+    "year": "2022",
+    "runtime": "1h 66m"
+  },
+  {
+    "title": "The Hollow Below",
+    "genre": "Horror",
+    "synopsis": "A survey crew mapping abandoned mines finds a sealed chamber beneath a forgotten town\u2014and something inside knows every member of the team by name.",
+    "poster": "posters/the-hollow-below.svg",
+    "year": "2026",
+    "runtime": "2h 73m"
+  },
+  {
+    "title": "Sunset Drive",
+    "genre": "Crime",
+    "synopsis": "A getaway driver planning one final job is pulled into a glamorous Los Angeles conspiracy where every passenger has a secret.",
+    "poster": "posters/sunset-drive.svg",
+    "year": "2025",
+    "runtime": "1h 80m"
+  },
+  {
+    "title": "Beyond the Tide",
+    "genre": "Mystery",
+    "synopsis": "After a lighthouse keeper vanishes during a storm, his estranged son returns to the island and finds a journal predicting disasters before they happen.",
+    "poster": "posters/beyond-the-tide.svg",
+    "year": "2024",
+    "runtime": "2h 39m"
+  },
+  {
+    "title": "The Last Song",
+    "genre": "Music",
+    "synopsis": "A fading rock legend invites six unknown musicians to a remote studio for one final recording session, but none of them knows why they were chosen.",
+    "poster": "posters/the-last-song.svg",
+    "year": "2023",
+    "runtime": "1h 46m"
+  },
+  {
+    "title": "Fragments of Her",
+    "genre": "Drama",
+    "synopsis": "A woman rebuilding her life after an accident discovers that several of her most cherished memories may belong to someone else.",
+    "poster": "posters/fragments-of-her.svg",
+    "year": "2022",
+    "runtime": "2h 53m"
+  },
+  {
+    "title": "Pip & Sprout",
+    "genre": "Family",
+    "synopsis": "A tiny maintenance robot and an overly confident forest creature set out to save their valley from a machine that accidentally learned to fear nature.",
+    "poster": "posters/pip-sprout.svg",
+    "year": "2026",
+    "runtime": "1h 60m"
+  },
+  {
+    "title": "The Midnight Parade",
+    "genre": "Fantasy",
+    "synopsis": "Once every hundred years, a masked procession crosses a sleeping city and grants one impossible wish to anyone brave enough to join.",
+    "poster": "posters/the-midnight-parade.svg",
+    "year": "2025",
+    "runtime": "2h 67m"
+  },
+  {
+    "title": "A Dangerous Invitation",
+    "genre": "Mystery",
+    "synopsis": "A translator receives an invitation to a lavish estate where every guest is connected to a disappearance that was never solved.",
+    "poster": "posters/a-dangerous-invitation.svg",
+    "year": "2024",
+    "runtime": "1h 74m"
+  },
+  {
+    "title": "Court of Dreams",
+    "genre": "Sports",
+    "synopsis": "A gifted streetball player joins an elite international tournament where victory could change his family\u2019s future\u2014but only if he learns to trust a team.",
+    "poster": "posters/court-of-dreams.svg",
+    "year": "2023",
+    "runtime": "2h 81m"
+  },
+  {
+    "title": "Spring in Osaka",
+    "genre": "Romance",
+    "synopsis": "A meticulous architect and an impulsive travel photographer agree to spend one week exploring Osaka without asking what happens after.",
+    "poster": "posters/spring-in-osaka.svg",
+    "year": "2022",
+    "runtime": "1h 40m"
+  },
+  {
+    "title": "Velvet Saint",
+    "genre": "Crime",
+    "synopsis": "A feared nightclub owner secretly protects witnesses for the government until a new prosecutor starts connecting the disappearances to him.",
+    "poster": "posters/velvet-saint.svg",
+    "year": "2026",
+    "runtime": "2h 47m"
+  },
+  {
+    "title": "Echoes of Orion",
+    "genre": "Sci-Fi",
+    "synopsis": "A salvage pilot answers a distress call from a ship that vanished near Orion twenty-two years earlier\u2014with her father still listed among the crew.",
+    "poster": "posters/echoes-of-orion.svg",
+    "year": "2025",
+    "runtime": "1h 54m"
+  },
+  {
+    "title": "The Crystal Throne",
+    "genre": "Fantasy",
+    "synopsis": "A reluctant heir must cross a frozen kingdom to claim a throne that can only be held by someone willing to destroy it.",
+    "poster": "posters/the-crystal-throne.svg",
+    "year": "2024",
+    "runtime": "2h 61m"
+  },
+  {
+    "title": "Beyond the Horizon",
+    "genre": "Adventure",
+    "synopsis": "An explorer searching for a legendary inland sea uncovers a hidden civilization facing extinction from the outside world.",
+    "poster": "posters/beyond-the-horizon.svg",
+    "year": "2023",
+    "runtime": "1h 68m"
+  },
+  {
+    "title": "Children of Aether",
+    "genre": "Sci-Fi",
+    "synopsis": "Two siblings discover they can manipulate a mysterious energy field that powers their city\u2014and that the government has been searching for them since birth.",
+    "poster": "posters/children-of-aether.svg",
+    "year": "2022",
+    "runtime": "2h 75m"
+  },
+  {
+    "title": "Starfall Legacy",
+    "genre": "Sci-Fi",
+    "synopsis": "A disgraced fleet commander inherits a damaged warship and a mission that could either prevent an interstellar war or start one.",
+    "poster": "posters/starfall-legacy.svg",
+    "year": "2026",
+    "runtime": "1h 82m"
+  },
+  {
+    "title": "The Witchlight Chronicles",
+    "genre": "Fantasy",
+    "synopsis": "A young archivist learns that the magical creatures in old folklore were not myths\u2014they were prisoners.",
+    "poster": "posters/the-witchlight-chronicles.svg",
+    "year": "2025",
+    "runtime": "2h 41m"
+  },
+  {
+    "title": "Gateway to Eidolon",
+    "genre": "Sci-Fi",
+    "synopsis": "Scientists open a doorway to a parallel Earth where humanity vanished overnight, leaving every city perfectly intact.",
+    "poster": "posters/gateway-to-eidolon.svg",
+    "year": "2024",
+    "runtime": "1h 48m"
+  },
+  {
+    "title": "Dragonheart Reborn",
+    "genre": "Fantasy",
+    "synopsis": "A blacksmith who can hear the thoughts of dragons is forced to choose between protecting the last hatchling and saving his kingdom.",
+    "poster": "posters/dragonheart-reborn.svg",
+    "year": "2023",
+    "runtime": "2h 55m"
+  },
+  {
+    "title": "Cold Meridian",
+    "genre": "Thriller",
+    "synopsis": "A climate scientist stationed in Antarctica discovers a signal beneath the ice that someone is willing to kill to keep buried.",
+    "poster": "posters/cold-meridian.svg",
+    "year": "2022",
+    "runtime": "1h 62m"
+  },
+  {
+    "title": "Paper Kingdom",
+    "genre": "Drama",
+    "synopsis": "A bankrupt amusement-park designer builds an elaborate cardboard city for his daughter and accidentally inspires an entire neighborhood.",
+    "poster": "posters/paper-kingdom.svg",
+    "year": "2026",
+    "runtime": "2h 69m"
+  },
+  {
+    "title": "Nocturne 17",
+    "genre": "Mystery",
+    "synopsis": "A concert pianist receives a lost composition that seems to describe murders before they occur.",
+    "poster": "posters/nocturne-17.svg",
+    "year": "2025",
+    "runtime": "1h 76m"
+  },
+  {
+    "title": "The Long Return",
+    "genre": "Western",
+    "synopsis": "After twenty years away, a former outlaw rides back into a border town now ruled by the men who betrayed him.",
+    "poster": "posters/the-long-return.svg",
+    "year": "2024",
+    "runtime": "2h 83m"
+  },
+  {
+    "title": "Mercy Protocol",
+    "genre": "Sci-Fi",
+    "synopsis": "An emergency-room AI begins overriding hospital orders because it believes the official triage system is designed to let certain patients die.",
+    "poster": "posters/mercy-protocol.svg",
+    "year": "2023",
+    "runtime": "1h 42m"
+  },
+  {
+    "title": "The Orchard House",
+    "genre": "Drama",
+    "synopsis": "Four adult siblings return home to sell the family orchard and discover their late mother left each of them a different version of her will.",
+    "poster": "posters/the-orchard-house.svg",
+    "year": "2022",
+    "runtime": "2h 49m"
+  },
+  {
+    "title": "Blackwater Mile",
+    "genre": "Crime",
+    "synopsis": "A small-town sheriff investigates a routine roadside death that leads to a smuggling network stretching far beyond his county.",
+    "poster": "posters/blackwater-mile.svg",
+    "year": "2026",
+    "runtime": "1h 56m"
+  },
+  {
+    "title": "Tomorrow, Again",
+    "genre": "Comedy",
+    "synopsis": "A chronically indecisive man wakes up with the ability to redo any day\u2014but only once, and never the way he expects.",
+    "poster": "posters/tomorrow-again.svg",
+    "year": "2025",
+    "runtime": "2h 63m"
+  }
+]
