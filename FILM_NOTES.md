@@ -6,7 +6,7 @@ Working development notes inferred from the poster art, titles, subtitles, tagli
 
 - Films may have an optional subtitle. The catalog stores it separately from the main title and displays it only when configured.
 - Films may have multiple genres, stored as an ordered list of genre labels.
-- The *DreamWalker* setting is a literal, science-based universe. Magic is not real; art and dance provide Florence with a language for expressing scientific understanding.
+- The *DreamWalker* setting is grounded in reality. Its “magic” is metaphorical: the real human power found in art, dance, music, love, and teamwork—not a supernatural force.
 - *The Painted Man* also takes place in the literal universe, but its inciting event is physical rather than magical.
 
 ## A Beautiful Apocalypse
@@ -57,11 +57,11 @@ Working development notes inferred from the poster art, titles, subtitles, tagli
 ## DreamWalker
 
 - **Optional subtitle:** The Florence Abernathy Story
-- **Proposed genres:** Drama, Science Fiction
+- **Proposed genres:** Drama, Music
 - **Poster evidence:** A dancer crosses a field of vivid color beneath a starry sky. Florence Abernathy is said to have danced between worlds and inspired a generation.
-- **Canon:** This story occurs in a literal, science-based universe. Magic does not exist. Florence uses art and dance as a language for exploring and communicating scientific ideas.
-- **Draft synopsis:** Florence Abernathy develops a radical language of art and dance for expressing scientific discoveries about the universe, challenging the boundary between intellectual understanding and human experience while inspiring a generation to see reality differently.
-- **Confidence:** High
+- **Canon:** This is a grounded, heartwarming drama about people, love, and teamwork. Art, dance, and music create a sense of real-life magic, but nothing supernatural occurs.
+- **Draft synopsis:** Through Florence Abernathy’s journey, art, dance, and music bring people together in a heartwarming story about love, collaboration, and the real-life magic people create when they work as a team.
+- **Confidence:** High on genre, tone, and themes; the characters and plot specifics remain to be developed.
 
 ## HACK
 
@@ -220,4 +220,5 @@ Working development notes inferred from the poster art, titles, subtitles, tagli
 
 ## Decisions to Make
 
+- Develop the specific characters, relationships, shared goal, and central conflict in *DreamWalker*.
 - Define the later stages and destination of the Painted Man’s unusual journey.
