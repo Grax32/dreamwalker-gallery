@@ -10,7 +10,7 @@
   {
     "title": "Cagliostro",
     "subtitle": "Fake It Til You Make It",
-    "genres": ["Historical", "Drama"],
+    "genres": ["Historical", "Drama", "Music"],
     "synopsis": "In the unrest of 1785, a charismatic mystic reinvents himself as Cagliostro and charms his way into the courts of Europe, where one audacious deception threatens to ignite a revolution.",
     "poster": "posters/Cagliostro.png",
     "year": "Future",
@@ -44,7 +44,7 @@
   {
     "title": "Deadly Damsel 3",
     "subtitle": "The Crown of Chaos",
-    "genres": ["Action", "Adventure"],
+    "genres": ["Action", "Thriller"],
     "synopsis": "A stolen royal artifact draws the Deadly Damsel into a high-seas conspiracy, where rival mercenaries and a fleet of thieves race to claim the Crown of Chaos.",
     "poster": "posters/Deadly Damsel 3.png",
     "year": "Future",
@@ -227,7 +227,7 @@
     "title": "Wir Tanzen Mit Dem Schicksal",
     "subtitle": "We Dance with Fate",
     "genres": ["Romance", "Historical", "Fantasy"],
-    "synopsis": "At an opulent masked ball, a vampire woman shares one forbidden dance with a stranger, setting in motion a romance that could topple their families’ carefully arranged futures.",
+    "synopsis": "At an opulent masquerade in 1897, a vampire heiress promised to a powerful bloodline shares one forbidden waltz with a stranger marked for death. Before the music ends, desire becomes conspiracy—and she must choose between the immortal future arranged for her and the one man who makes eternity feel like a prison.",
     "poster": "posters/Wir Tanzen Mit Dem Schicksal.JPEG",
     "year": "Future",
     "runtime": "Proposed"

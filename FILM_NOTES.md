@@ -19,7 +19,7 @@ Working development notes inferred from the poster art, titles, subtitles, tagli
 ## Cagliostro
 
 - **Optional subtitle:** Fake It Til You Make It
-- **Proposed genres:** Historical, Drama
+- **Proposed genres:** Historical, Drama, Music
 - **Poster evidence:** An aristocratic showman in August 1785; the poster emphasizes charisma, confidence tricks, revolution, and a man who changes both his name and the world.
 - **Draft synopsis:** In the unrest of 1785, a charismatic mystic reinvents himself as Cagliostro and charms his way into the courts of Europe, where one audacious deception threatens to ignite a revolution.
 - **Confidence:** High
@@ -49,7 +49,7 @@ Working development notes inferred from the poster art, titles, subtitles, tagli
 ## Deadly Damsel 3
 
 - **Optional subtitle:** The Crown of Chaos
-- **Proposed genres:** Action, Adventure
+- **Proposed genres:** Action, Thriller
 - **Poster evidence:** The heroine commands a yacht while another vessel burns. She is described as the most dangerous woman on the ocean.
 - **Draft synopsis:** A stolen royal artifact draws the Deadly Damsel into a high-seas conspiracy, where rival mercenaries and a fleet of thieves race to claim the Crown of Chaos.
 - **Confidence:** High
@@ -215,7 +215,7 @@ Working development notes inferred from the poster art, titles, subtitles, tagli
 - **Optional subtitle:** We Dance with Fate
 - **Proposed genres:** Romance, Historical, Fantasy
 - **Poster evidence:** A lavish European ballroom in 1897, a mysterious woman, a dancing couple, and the promise that one night can last forever.
-- **Draft synopsis:** At an opulent masked ball, a vampire woman shares one forbidden dance with a stranger, setting in motion a romance that could topple their families’ carefully arranged futures.
+- **Draft synopsis:** At an opulent masquerade in 1897, a vampire heiress promised to a powerful bloodline shares one forbidden waltz with a stranger marked for death. Before the music ends, desire becomes conspiracy—and she must choose between the immortal future arranged for her and the one man who makes eternity feel like a prison.
 - **Confidence:** High
 
 ## Decisions to Make
