@@ -354,6 +354,20 @@ body.gallery-container {
   color: #ccc;
 }
 
+.content-section h2 {
+  margin: 2rem 0 0.75rem;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.content-section h2:first-of-type {
+  margin-top: 2.25rem;
+}
+
+.content-section strong {
+  color: #fff;
+}
+
 .contact-placeholder ul {
   list-style-type: none;
   padding-left: 0;
