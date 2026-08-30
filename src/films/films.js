@@ -13,7 +13,7 @@
   const closeButton = document.querySelector('#film-modal-close');
   let lastFocusedCard = null;
 
-  [...new Set(films.map((film) => film.genre))].sort().forEach((name) => {
+  [...new Set(films.flatMap((film) => film.genres))].sort().forEach((name) => {
     const option = document.createElement('option');
     option.value = name;
     option.textContent = name;
@@ -25,8 +25,9 @@
     let visible = 0;
 
     cards.forEach((card) => {
-      const matchesGenre = !genre.value || card.dataset.genre === genre.value;
-      const haystack = `${card.dataset.title} ${card.dataset.subtitle} ${card.dataset.synopsis} ${card.dataset.genre}`.toLowerCase();
+      const cardGenres = card.dataset.genres.split('|');
+      const matchesGenre = !genre.value || cardGenres.includes(genre.value);
+      const haystack = `${card.dataset.title} ${card.dataset.subtitle} ${card.dataset.synopsis} ${cardGenres.join(' ')}`.toLowerCase();
       const matchesQuery = !query || haystack.includes(query);
       card.hidden = !(matchesGenre && matchesQuery);
       if (!card.hidden) visible += 1;
@@ -50,7 +51,7 @@
     lastFocusedCard = card;
     document.querySelector('#film-modal-poster').src = `/films/${film.poster}`;
     document.querySelector('#film-modal-poster').alt = `${film.title} poster`;
-    document.querySelector('#film-modal-genre').textContent = film.genre;
+    document.querySelector('#film-modal-genre').textContent = film.genres.join(' · ');
     document.querySelector('#film-modal-title').textContent = film.title;
     const subtitle = document.querySelector('#film-modal-subtitle');
     subtitle.textContent = film.subtitle || '';

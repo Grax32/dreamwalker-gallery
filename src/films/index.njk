@@ -36,14 +36,14 @@ pageScript: /films/films.js
       data-film-index="{{ loop.index0 }}"
       data-title="{{ film.title | escape }}"
       data-subtitle="{{ film.subtitle | default('') | escape }}"
-      data-genre="{{ film.genre | escape }}"
+      data-genres="{{ film.genres | join('|') | escape }}"
       data-synopsis="{{ film.synopsis | escape }}">
       <div class="film-poster-wrap">
         <img src="/films/{{ film.poster }}" alt="{{ film.title | escape }} poster" loading="lazy" decoding="async">
       </div>
       <h3>{{ film.title }}</h3>
       {% if film.subtitle %}<div class="film-subtitle">{{ film.subtitle }}</div>{% endif %}
-      <div class="film-meta">{{ film.year }} · {{ film.genre }} · {{ film.runtime }}</div>
+      <div class="film-meta">{{ film.year }} · {{ film.genres | join(', ') }} · {{ film.runtime }}</div>
     </article>
   {% endfor %}
 </section>
