@@ -169,6 +169,16 @@
   white-space: nowrap;
 }
 
+.film-subtitle {
+  overflow: hidden;
+  margin: -0.1rem 1px 0.3rem;
+  color: var(--films-gold);
+  font-size: 0.7rem;
+  font-style: italic;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .film-meta {
   color: #8f9194;
   font-size: 0.75rem;
@@ -213,6 +223,12 @@
 .film-modal__copy h2 {
   margin: 0.65rem 0;
   font: 700 2.6rem Georgia, serif;
+}
+
+.film-modal__subtitle {
+  margin: -0.25rem 0 0.8rem;
+  color: var(--films-gold);
+  font: italic 1.05rem Georgia, serif;
 }
 
 .film-modal__copy p {

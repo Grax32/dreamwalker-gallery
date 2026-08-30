@@ -35,12 +35,14 @@ pageScript: /films/films.js
     <article class="film-card" tabindex="0"
       data-film-index="{{ loop.index0 }}"
       data-title="{{ film.title | escape }}"
+      data-subtitle="{{ film.subtitle | default('') | escape }}"
       data-genre="{{ film.genre | escape }}"
       data-synopsis="{{ film.synopsis | escape }}">
       <div class="film-poster-wrap">
         <img src="/films/{{ film.poster }}" alt="{{ film.title | escape }} poster" loading="lazy" decoding="async">
       </div>
       <h3>{{ film.title }}</h3>
+      {% if film.subtitle %}<div class="film-subtitle">{{ film.subtitle }}</div>{% endif %}
       <div class="film-meta">{{ film.year }} · {{ film.genre }} · {{ film.runtime }}</div>
     </article>
   {% endfor %}
@@ -53,6 +55,7 @@ pageScript: /films/films.js
     <div class="film-modal__copy">
       <div class="films-eyebrow" id="film-modal-genre"></div>
       <h2 id="film-modal-title"></h2>
+      <div class="film-modal__subtitle" id="film-modal-subtitle" hidden></div>
       <div class="film-meta" id="film-modal-meta"></div>
       <p id="film-modal-synopsis"></p>
     </div>

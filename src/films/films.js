@@ -26,7 +26,7 @@
 
     cards.forEach((card) => {
       const matchesGenre = !genre.value || card.dataset.genre === genre.value;
-      const haystack = `${card.dataset.title} ${card.dataset.synopsis} ${card.dataset.genre}`.toLowerCase();
+      const haystack = `${card.dataset.title} ${card.dataset.subtitle} ${card.dataset.synopsis} ${card.dataset.genre}`.toLowerCase();
       const matchesQuery = !query || haystack.includes(query);
       card.hidden = !(matchesGenre && matchesQuery);
       if (!card.hidden) visible += 1;
@@ -52,6 +52,9 @@
     document.querySelector('#film-modal-poster').alt = `${film.title} poster`;
     document.querySelector('#film-modal-genre').textContent = film.genre;
     document.querySelector('#film-modal-title').textContent = film.title;
+    const subtitle = document.querySelector('#film-modal-subtitle');
+    subtitle.textContent = film.subtitle || '';
+    subtitle.hidden = !film.subtitle;
     document.querySelector('#film-modal-meta').textContent = `${film.year} · ${film.runtime}`;
     document.querySelector('#film-modal-synopsis').textContent = film.synopsis;
     modal.classList.add('is-open');
