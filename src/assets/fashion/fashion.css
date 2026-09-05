@@ -61,6 +61,14 @@ main { overflow: hidden; }
 .look-meta small, .look-meta i { font-size: 8px; font-style: normal; font-weight: 800; letter-spacing: .16em; }
 .look-meta b { font: italic 700 23px/1 Georgia, serif; }
 
+.upcoming { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 6vw; padding: 7vw; border-bottom: 1px solid var(--ink); }
+.upcoming .kicker { border-color: #4c4a89; }
+.upcoming h3 { margin: 40px 0 0; font: 700 clamp(55px, 6vw, 90px)/.95 Georgia, serif; letter-spacing: -.06em; }
+.upcoming h3 em { color: #4c4a89; }
+.upcoming .statement { margin-top: 30px; }
+.upcoming-look { width: 100%; aspect-ratio: 1086/1448; background: #faf7ef; }
+.upcoming-look img { filter: none; }
+
 .closing { position: relative; padding: 140px 7vw 130px; }
 .closing > p { font-size: 10px; font-weight: 800; letter-spacing: .22em; }
 .closing h3 { margin-top: 28px; font-size: clamp(70px, 10vw, 150px); }
@@ -96,6 +104,7 @@ footer span:last-child { text-align: right; }
   .intro { grid-template-columns: 1fr; padding: 80px 7vw; }
   .statement { margin-top: 10px; }
   .gallery { grid-template-columns: 1fr; padding: 14px; }
+  .upcoming { grid-template-columns: 1fr; gap: 35px; padding: 65px 7vw; }
   .look-meta b { font-size: 20px; }
   .closing { padding: 100px 7vw 110px; }
   .closing a { right: auto; bottom: 45px; left: 7vw; }
