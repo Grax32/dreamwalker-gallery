@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
     "src/films/posters": "films/posters",
     "src/films/films.css": "films/films.css",
     "src/films/films.js": "films/films.js",
+    "src/contact/contact.js": "contact/contact.js",
     presentation: "presentation",
   });
 

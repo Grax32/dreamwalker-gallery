@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 title: Contact - The DreamWalker Gallery
+pageScript: /contact/contact.js
 ---
 
 <div class="page-content">
@@ -10,17 +11,37 @@ title: Contact - The DreamWalker Gallery
   </div>
   
   <div class="content-section">
-    <p>For inquiries about artwork, exhibitions, or commissions, please reach out. We'll be setting up proper contact methods soon.</p>
-    
-    <div class="contact-placeholder">
-      <p><strong>Coming Soon:</strong></p>
-      <ul>
-        <li>Contact form</li>
-        <li>Email address</li>
-        <li>Social media links</li>
-        <li>Gallery location (if applicable)</li>
-      </ul>
-    </div>
+    <p>For inquiries about artwork, exhibitions, commissions, or the site, please send a message.</p>
+
+    <form class="contact-form" action="/api/contact" method="post" data-contact-form>
+      <div class="form-field">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+      </div>
+
+      <div class="form-field">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+      </div>
+
+      <div class="form-field">
+        <label for="contact-subject">Subject</label>
+        <input id="contact-subject" name="subject" type="text" maxlength="160" required>
+      </div>
+
+      <div class="form-field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="7" maxlength="5000" required></textarea>
+      </div>
+
+      <div class="form-field form-field--trap" aria-hidden="true">
+        <label for="contact-website">Website</label>
+        <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button class="cta-button" type="submit">Send Message</button>
+      <p class="form-status" data-form-status aria-live="polite"></p>
+    </form>
     
     <div class="back-to-gallery">
       <a href="/" class="cta-button">← Back to Home</a>

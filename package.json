@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "eleventy --serve --watch",
     "build": "eleventy",
-    "clean": "rimraf _site .cache"
+    "clean": "rimraf _site .cache",
+    "cf:dev": "npm run build && wrangler dev",
+    "cf:deploy": "npm run build && wrangler deploy"
   },
   "devDependencies": {
-  "@11ty/eleventy": "^2.0.0",
-  "slugify": "^1.6.6",
-  "rimraf": "^5.0.0"
+    "@11ty/eleventy": "^2.0.0",
+    "rimraf": "^5.0.0",
+    "slugify": "^1.6.6",
+    "wrangler": "^4.129.0"
   }
 }

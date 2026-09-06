@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dreamwalker-gallery",
+  "main": "worker/src/index.js",
+  "compatibility_date": "2026-09-05",
+  "assets": {
+    "directory": "./_site",
+    "binding": "ASSETS"
+  },
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_sender_addresses": ["websites@vorteon.com"]
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "traces": {
+      "enabled": true
+    }
+  }
+}
