@@ -124,8 +124,7 @@ body.gallery-container {
   opacity: 0.96;
 }
 
-.home-cta,
-.gallery-home-link {
+.home-cta {
   display: inline-block;
   margin-top: 2rem;
   padding: 0.8rem 1.25rem;
@@ -140,9 +139,7 @@ body.gallery-container {
 }
 
 .home-cta:hover,
-.home-cta:focus-visible,
-.gallery-home-link:hover,
-.gallery-home-link:focus-visible {
+.home-cta:focus-visible {
   background: #fff;
   color: #0a0a0a;
 }
@@ -161,11 +158,6 @@ body.gallery-container {
 
 .gallery-section--featured {
   padding-top: 8rem;
-}
-
-.gallery-section--featured .gallery-home-link {
-  color: #aaa;
-  margin-top: 1.25rem;
 }
 
 .gallery-intro {
