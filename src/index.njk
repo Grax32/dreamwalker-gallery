@@ -7,19 +7,6 @@ title: The DreamWalker Gallery
   <div class="hero-content">
     <h1>The DreamWalker Gallery</h1>
     <p>Where imagination, digital art, and photography blend into surreal worlds of creativity.</p>
-  </div>
-</section>
-
-<section class="gallery-section">
-  <div class="gallery-intro">
-    <h2>Featured Artworks</h2>
-    <p>Explore our collection of {{ gallery.length }} surreal and imaginative pieces</p>
-  </div>
-  
-  <div class="gallery-grid">
-    {% for item in gallery %}
-      {% set galleryItem = item %}
-      {% include "gallery-item.njk" %}
-    {% endfor %}
+    <a class="home-cta" href="/gallery/featured/">Explore Featured Art</a>
   </div>
 </section>

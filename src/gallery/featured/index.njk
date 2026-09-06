@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+title: Featured Artworks - The DreamWalker Gallery
+---
+
+<section class="gallery-section gallery-section--featured">
+  <div class="gallery-intro">
+    <h1>Featured Artworks</h1>
+    <p>Explore our collection of {{ gallery.length }} surreal and imaginative pieces</p>
+    <a class="gallery-home-link" href="/">← Back to Home</a>
+  </div>
+
+  <div class="gallery-grid">
+    {% for item in gallery %}
+      {% set galleryItem = item %}
+      {% include "gallery-item.njk" %}
+    {% endfor %}
+  </div>
+</section>
