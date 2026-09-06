@@ -55,8 +55,8 @@ export default {
       return json({ ok: true }, 202);
     }
 
-    const name = clean(data.get('name'));
     const email = clean(data.get('email'));
+    const name = clean(data.get('name')) || email;
     const subject = clean(data.get('subject')).replace(/\s+/g, ' ');
     const message = clean(data.get('message'));
 
