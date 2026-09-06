@@ -28,7 +28,7 @@ main { overflow: hidden; }
   letter-spacing: .17em;
 }
 .nav > span { text-align: center; }
-.nav > a:last-child { text-align: right; }
+.nav-actions { display: flex; justify-content: flex-end; gap: 24px; }
 .wordmark { position: relative; display: block; width: 150px; height: 62px; overflow: hidden; }
 .wordmark img { position: absolute; top: -43px; left: 0; width: 150px; max-width: none; height: 150px; object-fit: contain; mix-blend-mode: multiply; }
 
@@ -93,6 +93,7 @@ footer span:last-child { text-align: right; }
 @media (max-width: 800px) {
   .nav { grid-template-columns: 1fr auto; }
   .nav > span { display: none; }
+  .nav-actions { gap: 16px; }
   .wordmark { width: 125px; }
   .wordmark img { top: -31px; width: 125px; height: 125px; }
   .hero { grid-template-columns: 1fr; min-height: 0; height: auto; }
