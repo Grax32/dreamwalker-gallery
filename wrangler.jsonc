@@ -13,6 +13,16 @@
       "allowed_sender_addresses": ["websites@vorteon.com"]
     }
   ],
+  "routes": [
+    {
+      "pattern": "dreamwalkergallery.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.dreamwalkergallery.com",
+      "custom_domain": true
+    }
+  ],
   "observability": {
     "enabled": true,
     "traces": {
