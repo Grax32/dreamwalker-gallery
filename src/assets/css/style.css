@@ -460,6 +460,11 @@ body.gallery-container {
   gap: 1.25rem;
 }
 
+.contact-form[hidden],
+.contact-success[hidden] {
+  display: none;
+}
+
 .form-field {
   display: grid;
   gap: 0.45rem;
