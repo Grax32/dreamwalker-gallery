@@ -2,7 +2,7 @@ const looks = [
   ["Fiery Couture", "No. 01", "/assets/fashion/fiery-couture.png"],
   ["Bird of Paradise", "No. 02", "/assets/fashion/bird-of-paradise.png"],
   ["White Tuxedo", "No. 03", "/assets/fashion/white-tuxedo.png"],
-  ["Cuban Bloom", "No. 04", "/assets/fashion/cuban-bloom.png"],
+  ["Jardín de Cuba", "No. 04", "/assets/fashion/cuban-bloom.png"],
   ["Midnight Bloom", "Upcoming design", "/assets/fashion/midnight-bloom.png"],
 ];
 

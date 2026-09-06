@@ -345,17 +345,17 @@ body.gallery-container {
   }
 
   .hero-content h1 {
-    font-size: clamp(2rem, 10vw, 3.25rem);
+    font-size: clamp(1.75rem, 9vw, 3.25rem);
     margin-bottom: 1rem;
-    letter-spacing: 0.07em;
-    overflow-wrap: anywhere;
+    letter-spacing: 0.045em;
+    overflow-wrap: normal;
+    word-break: normal;
   }
   
   .hero-content p {
     font-size: 1.1rem;
     padding: 0;
     letter-spacing: 0.08em;
-    overflow-wrap: anywhere;
   }
   
   .navbar {
