@@ -1,5 +1,5 @@
 const SENDER = { email: 'websites@vorteon.com', name: 'DreamWalker Gallery Website' };
-const RECIPIENT = 'website-feedback@vorteon.com';
+const RECIPIENT = 'dreamwalker-gallery@vt-hub.win';
 const MAX_MESSAGE_LENGTH = 5000;
 
 function json(body, status = 200) {
