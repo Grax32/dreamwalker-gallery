@@ -16,7 +16,7 @@ pageScript: /contact/contact.js
     <form class="contact-form" action="/api/contact" method="post" data-contact-form>
       <div class="form-field">
         <label for="contact-name">Name</label>
-        <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100">
       </div>
 
       <div class="form-field">
@@ -42,9 +42,14 @@ pageScript: /contact/contact.js
       <button class="cta-button" type="submit">Send Message</button>
       <p class="form-status" data-form-status aria-live="polite"></p>
     </form>
-    
-    <div class="back-to-gallery">
-      <a href="/" class="cta-button">← Back to Home</a>
-    </div>
+
+    <section class="contact-success" data-contact-success hidden tabindex="-1" aria-labelledby="contact-success-title">
+      <h2 id="contact-success-title">Thanks—your message has been sent.</h2>
+      <div class="contact-success__actions">
+        <button class="cta-button" type="button" data-contact-back>← Back</button>
+        <a href="/" class="cta-button">Home</a>
+        <button class="cta-button" type="button" data-contact-enquire>Enquire Again</button>
+      </div>
+    </section>
   </div>
 </div>

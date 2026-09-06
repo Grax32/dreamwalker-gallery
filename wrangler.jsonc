@@ -10,7 +10,7 @@
   "send_email": [
     {
       "name": "EMAIL",
-      "allowed_sender_addresses": ["websites@vorteon.com"]
+      "allowed_sender_addresses": ["dreamwalker-gallery@vt-hub.win"]
     }
   ],
   "routes": [
@@ -25,8 +25,16 @@
   ],
   "observability": {
     "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "invocation_logs": true,
+      "persist": true
+    },
     "traces": {
-      "enabled": true
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true
     }
   }
 }

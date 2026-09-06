@@ -3,6 +3,9 @@ const form = document.querySelector('[data-contact-form]');
 if (form) {
   const submitButton = form.querySelector('button[type="submit"]');
   const status = form.querySelector('[data-form-status]');
+  const success = document.querySelector('[data-contact-success]');
+  const enquireAgainButton = success?.querySelector('[data-contact-enquire]');
+  const backButton = success?.querySelector('[data-contact-back]');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -16,15 +19,19 @@ if (form) {
         body: new FormData(form),
         headers: { Accept: 'application/json' },
       });
-      const result = await response.json().catch(() => ({}));
+      const result = await response.json().catch((error) => {
+        console.error('Unable to parse contact form response as JSON.', error);
+        return {};
+      });
 
       if (!response.ok) {
         throw new Error(result.error || 'Unable to send your message. Please try again.');
       }
 
       form.reset();
-      status.textContent = 'Thanks—your message has been sent.';
-      status.dataset.state = 'success';
+      form.hidden = true;
+      success.hidden = false;
+      success.focus();
     } catch (error) {
       status.textContent = error.message || 'Unable to send your message. Please try again.';
       status.dataset.state = 'error';
@@ -33,4 +40,12 @@ if (form) {
       submitButton.textContent = 'Send Message';
     }
   });
+
+  enquireAgainButton?.addEventListener('click', () => {
+    success.hidden = true;
+    form.hidden = false;
+    form.querySelector('input, textarea')?.focus();
+  });
+
+  backButton?.addEventListener('click', () => window.history.back());
 }
