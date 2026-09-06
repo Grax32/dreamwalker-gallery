@@ -8,11 +8,15 @@ pageScript: /films/films.js
 
 <section class="films-hero">
   <div class="films-hero__copy">
-    <div class="films-eyebrow">DREAMWALKER ORIGINAL</div>
+    <div class="films-eyebrow">DREAMWALKER ORIGINAL · FICTIONAL FILM CONCEPTS</div>
     <h1>Stories worth<br>getting lost in.</h1>
-    <p>Explore {{ films.length }} original film concepts spanning heartfelt dramas, thrilling adventures, strange new worlds, and unforgettable characters.</p>
+    <p>Discover {{ films.length }} original film concepts spanning heartfelt dramas, thrilling adventures, strange new worlds, and unforgettable characters.</p>
     <a class="films-button films-button--primary" href="#film-catalog">Explore the collection</a>
   </div>
+  <figure class="films-hero__art" aria-labelledby="films-hero-art-caption">
+    <img src="/assets/films/dreamwalker-concept-hero.png" alt="A woman in a red gown stands beneath a theater spotlight, looking out over a moonlit fictional city and coast." fetchpriority="high">
+    <figcaption id="films-hero-art-caption"><span>CONCEPT FRAME 01</span><span>{{ films.length }} FICTIONAL FILMS</span></figcaption>
+  </figure>
 </section>
 
 <section class="films-controls" id="film-catalog" aria-labelledby="films-heading">

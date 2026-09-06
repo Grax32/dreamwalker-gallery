@@ -22,10 +22,12 @@
 }
 
 .films-hero {
-  min-height: 32rem;
-  display: flex;
+  min-height: 34rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 29rem);
   align-items: center;
-  padding: 4.5rem 5vw;
+  column-gap: clamp(2rem, 7vw, 8rem);
+  padding: 4.5rem 8vw 3.4rem 5vw;
   background:
     radial-gradient(circle at 78% 40%, rgba(215, 174, 93, 0.14), transparent 28%),
     linear-gradient(110deg, #0e0f11, #070809 60%);
@@ -34,31 +36,64 @@
   overflow: hidden;
 }
 
-.films-hero::after {
-  content: "";
-  position: absolute;
-  right: 9vw;
-  top: 50%;
-  transform: translateY(-50%) rotate(7deg);
-  width: 15.5rem;
-  height: 22.5rem;
-  border: 1px solid rgba(215, 174, 93, 0.3);
-  box-shadow: 0 0 80px rgba(215, 174, 93, 0.08);
-}
-
 .films-hero__copy {
   position: relative;
   z-index: 1;
+  max-width: 33rem;
+  transform: translateY(0.8rem);
+}
+
+.films-hero__art {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 27rem);
+  justify-self: end;
+  margin: 0;
+  transform: rotate(4deg);
+  border: 1px solid rgba(215, 174, 93, 0.48);
+  background: #0b0d0f;
+  box-shadow: -1.75rem 2.3rem 4.5rem rgba(0, 0, 0, 0.48), 0 0 5rem rgba(215, 174, 93, 0.09);
+}
+
+.films-hero__art::before {
+  content: "";
+  position: absolute;
+  inset: 0.55rem;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+}
+
+.films-hero__art img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.films-hero__art figcaption {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.75rem;
+  left: 0.8rem;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.12rem;
+  text-shadow: 0 1px 5px #000;
 }
 
 .films-hero h1 {
-  max-width: 44rem;
+  max-width: 28rem;
   margin: 0.6rem 0 1.1rem;
   font: 700 clamp(2.9rem, 6vw, 5.1rem) / 0.96 Georgia, serif;
 }
 
 .films-hero p {
-  max-width: 39rem;
+  max-width: 33rem;
   margin-bottom: 1.75rem;
   color: #bbb8b0;
   font-size: 1.125rem;
@@ -286,10 +321,15 @@
 
   .films-hero {
     min-height: 25rem;
+    grid-template-columns: 1fr;
     padding-inline: 1.1rem;
   }
 
-  .films-hero::after {
+  .films-hero__copy {
+    transform: none;
+  }
+
+  .films-hero__art {
     display: none;
   }
 
