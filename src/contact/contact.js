@@ -29,9 +29,10 @@ if (form) {
       }
 
       form.reset();
-      form.hidden = true;
-      success.hidden = false;
-      success.focus();
+      form.setAttribute('hidden', '');
+      form.style.display = 'none';
+      success?.removeAttribute('hidden');
+      success?.focus();
     } catch (error) {
       status.textContent = error.message || 'Unable to send your message. Please try again.';
       status.dataset.state = 'error';
@@ -42,8 +43,9 @@ if (form) {
   });
 
   enquireAgainButton?.addEventListener('click', () => {
-    success.hidden = true;
-    form.hidden = false;
+    success.setAttribute('hidden', '');
+    form.removeAttribute('hidden');
+    form.style.removeProperty('display');
     form.querySelector('input, textarea')?.focus();
   });
 
